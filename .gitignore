@@ -31,13 +31,7 @@
 !Evaluation/data/**
 Evalution/config.json
 
-hats/node_classification/src/data/
-hats/graph_classification/src/data/
-
-*/hats/node_classification/src/data/
-*/hats/graph_classification/src/data/
-
-estimate/src/data
+ESTIMATE/src/data
 Regression/ESTIMATE/src/data
 
 RTGCN/work_dir/NYSE
@@ -50,7 +44,5 @@ HGTAN/HGTAN/__pycache__/
 HGTAN/training/__pycache__/
 RTGCN/processor/__pycache__/
 StockMixer/src/__pycache__/
-hats/graph_classification/src/base/__pycache__/
-hats/graph_classification/src/models/__pycache__/
 
 */*/tmp
