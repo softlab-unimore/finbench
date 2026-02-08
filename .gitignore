@@ -27,6 +27,8 @@
 !*/*/dataset/*.py
 !*/dataset/*.md
 !*/*/dataset/*.md
+!Evaluation/data/
+!Evaluation/data/**
 
 hats/node_classification/src/data/
 hats/graph_classification/src/data/
