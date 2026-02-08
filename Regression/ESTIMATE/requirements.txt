@@ -1,0 +1,11 @@
+numpy==2.2.6
+pandas==2.3.3
+torch==2.9.1
+scikit-learn==1.7.2
+PyYAML==6.0.3
+tqdm==4.67.1
+stockstats==0.6.5
+ta==0.11.0
+dcor==0.7
+iisignature==0.24 # to install use pip install iisignature --no-build-isolation
+torch-geometric==2.7.0

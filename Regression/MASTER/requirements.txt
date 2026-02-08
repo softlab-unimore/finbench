@@ -1,0 +1,10 @@
+tqdm==4.67.1
+scikit-learn==1.6.1
+scipy==1.13.1
+pandas==1.5.3
+numpy==1.26.4
+torch==2.6.0
+
+# Original version
+# pyqlib
+# PyYAML==6.0.2
