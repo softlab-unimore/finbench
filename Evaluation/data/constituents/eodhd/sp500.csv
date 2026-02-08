@@ -1,0 +1,686 @@
+Code,Name,StartDate,EndDate,IsActiveNow,IsDelisted,EODHD
+A,Agilent Technologies Inc,2000-06-05,,1,0,A.US
+AAL,American Airlines Group,2015-03-23,2024-09-23,0,0,AAL.US
+AAP,Advance Auto Parts Inc,2015-07-09,2023-08-25,0,0,AAP.US
+AAPL,Apple Inc,1982-11-30,,1,0,AAPL.US
+ABBV,AbbVie Inc,2013-01-02,,1,0,ABBV.US
+ABMD,ABIOMED Inc,2018-05-31,2022-12-22,0,1,ABMD.US
+ABNB,Airbnb Inc,2023-09-18,,1,0,ABNB.US
+ABT,Abbott Laboratories,1957-03-04,,1,0,ABT.US
+ACGL,Arch Capital Group Ltd,2022-11-01,,1,0,ACGL.US
+ACN,Accenture plc,2011-07-05,,1,0,ACN.US
+ADBE,Adobe Systems Incorporated,1997-05-05,,1,0,ADBE.US
+ADI,Analog Devices Inc,1999-10-12,,1,0,ADI.US
+ADM,Archer-Daniels-Midland Company,1957-03-04,,1,0,ADM.US
+ADP,Automatic Data Processing Inc,1981-03-31,,1,0,ADP.US
+ADSK,Autodesk Inc,1989-12-01,,1,0,ADSK.US
+AEE,Ameren Corp,1991-09-19,,1,0,AEE.US
+AEP,American Electric Power Co Inc,1957-03-04,,1,0,AEP.US
+AES,The AES Corporation,1998-10-02,,1,0,AES.US
+AET,Aetna Inc,,2018-12-03,0,1,AET.US
+AFL,Aflac Incorporated,1999-05-28,,1,0,AFL.US
+AGN,Allergan plc,2016-12-19,,1,1,AGN.US
+AIG,American International Group Inc,1980-03-31,,1,0,AIG.US
+AIRC,Apartment Income REIT Corp,2020-12-15,2020-12-21,0,1,AIRC.US
+AIV,Apartment Investment and Management Co,,2020-12-21,0,0,AIV.US
+AIZ,Assurant Inc,2007-04-10,,1,0,AIZ.US
+AJG,Arthur J Gallagher & Co,2016-05-31,,1,0,AJG.US
+AKAM,Akamai Technologies Inc,2007-07-12,,1,0,AKAM.US
+ALB,Albemarle Corp,2016-07-01,,1,0,ALB.US
+ALGN,Align Technology Inc,2017-06-19,,1,0,ALGN.US
+ALK,Alaska Air Group Inc,2016-05-13,2023-12-18,0,0,ALK.US
+ALL,The Allstate Corporation,1995-07-13,,1,0,ALL.US
+ALLE,Allegion PLC,2013-12-02,,1,0,ALLE.US
+ALXN,Alexion Pharmaceuticals Inc,2012-05-25,2021-07-21,0,1,ALXN.US
+AMAT,Applied Materials Inc,1995-03-16,,1,0,AMAT.US
+AMCR,Amcor PLC,2019-06-07,,1,0,AMCR.US
+AMD,Advanced Micro Devices Inc,2017-03-20,,1,0,AMD.US
+AME,Ametek Inc,2013-09-23,,1,0,AME.US
+AMG,Affiliated Managers Group Inc,2014-07-01,2019-12-23,0,0,AMG.US
+AMGN,Amgen Inc,1992-01-02,,1,0,AMGN.US
+AMP,Ameriprise Financial Inc,2005-10-03,,1,0,AMP.US
+AMT,American Tower Corp,2007-11-19,,1,0,AMT.US
+AMTM,Amentum Holdings Inc.,2024-09-30,2024-12-23,0,0,AMTM.US
+AMZN,Amazon.com Inc,2005-11-18,,1,0,AMZN.US
+AN,AutoNation Inc,,2017-08-08,0,0,AN.US
+ANDV,Andeavor,,2018-10-01,0,1,ANDV.US
+ANET,Arista Networks,2018-08-28,,1,0,ANET.US
+ANSS,ANSYS Inc,2017-06-19,,1,0,ANSS.US
+AON,Aon PLC,1996-04-23,,1,0,AON.US
+AOS,Smith AO Corporation,2017-07-26,,1,0,AOS.US
+APA,APA Corporation,1997-07-28,,1,0,APA.US
+APC,Anadarko Petroleum Corporation,,2019-08-09,0,1,APC.US
+APD,Air Products and Chemicals Inc,1985-04-30,,1,0,APD.US
+APH,Amphenol Corporation,2008-09-30,,1,0,APH.US
+APO,Apollo Global Management LLC Class A,2024-12-23,,1,0,APO.US
+APTV,Aptiv PLC,2012-12-24,,1,0,APTV.US
+ARE,Alexandria Real Estate Equities Inc,2017-03-20,,1,0,ARE.US
+ARNC,Arconic Corporation,2020-04-01,2020-04-06,0,1,ARNC.US
+ATO,Atmos Energy Corporation,2019-02-15,,1,0,ATO.US
+ATVI,Activision Blizzard Inc,2015-08-31,2023-10-18,0,1,ATVI.US
+AVB,AvalonBay Communities Inc,2007-01-10,,1,0,AVB.US
+AVGO,Broadcom Inc,2014-05-08,,1,0,AVGO.US
+AVY,Avery Dennison Corp,1987-12-31,,1,0,AVY.US
+AWK,American Water Works,2016-03-04,,1,0,AWK.US
+AXON,Axon Enterprise Inc.,2023-05-04,,1,0,AXON.US
+AXP,American Express Company,1976-06-30,,1,0,AXP.US
+AYI,Acuity Brands Inc,2016-05-03,2018-06-18,0,0,AYI.US
+AZO,AutoZone Inc,1997-01-02,,1,0,AZO.US
+BA,The Boeing Company,1957-03-04,,1,0,BA.US
+BAC,Bank of America Corp,1976-06-30,,1,0,BAC.US
+BALL,Ball Corporation,1984-10-31,,1,0,BALL.US
+BAX,Baxter International Inc,1972-09-30,,1,0,BAX.US
+BBBY,Bed Bath & Beyond Inc,,2017-07-26,0,1,BBBY.US
+BBWI,Bath & Body Works Inc.,1983-09-30,2024-10-01,0,0,BBWI.US
+BBY,Best Buy Co. Inc,1999-06-29,,1,0,BBY.US
+BCR,C.R. Bard Inc,,2018-01-03,0,1,BCR.US
+BDX,Becton Dickinson and Company,1972-09-30,,1,0,BDX.US
+BEN,Franklin Resources Inc,1998-04-30,,1,0,BEN.US
+BF-B,Brown-Forman Corporation,1982-10-31,,1,0,BF-B.US
+BFH,Bread Financial Holdings Inc,2013-12-23,2020-06-22,0,0,BFH.US
+BG,Bunge Limited,2023-03-15,,1,0,BG.US
+BHF,Brighthouse Financial Inc,2017-08-07,2019-04-03,0,0,BHF.US
+BIIB,Biogen Inc,2003-11-13,,1,0,BIIB.US
+BIO,Bio-Rad Laboratories Inc,2020-06-22,2024-09-23,0,0,BIO.US
+BIVV,Bioverativ Inc,2017-02-02,2017-02-03,0,1,BIVV.US
+BK,The Bank of New York Mellon Corporation,1995-03-31,,1,0,BK.US
+BKNG,Booking Holdings Inc,2009-11-06,,1,0,BKNG.US
+BKR,Baker Hughes Co,2017-07-07,,1,0,BKR.US
+BLDR,Builders FirstSource Inc,2023-12-18,,1,0,BLDR.US
+BLK,BlackRock Inc,2011-04-01,,1,0,BLK.US
+BMY,Bristol-Myers Squibb Company,1957-03-04,,1,0,BMY.US
+BR,Broadridge Financial Solutions Inc,2018-06-18,,1,0,BR.US
+BRK-B,Berkshire Hathaway Inc,2010-02-16,,1,0,BRK-B.US
+BRO,Brown & Brown Inc,2021-09-20,,1,0,BRO.US
+BSX,Boston Scientific Corp,1995-02-24,,1,0,BSX.US
+BWA,BorgWarner Inc,2011-12-16,2025-03-24,0,0,BWA.US
+BX,Blackstone Group Inc,2023-09-18,,1,0,BX.US
+BXP,Boston Properties Inc,2006-04-03,,1,0,BXP.US
+C,Citigroup Inc,1988-05-31,,1,0,C.US
+CA,Xtrackers California Municipal Bonds ETF,,2018-11-06,0,0,CA.US
+CAG,ConAgra Foods Inc,1983-08-31,,1,0,CAG.US
+CAH,Cardinal Health Inc,1997-05-27,,1,0,CAH.US
+CARR,Carrier Global Corp,2020-04-03,,1,0,CARR.US
+CARS,Cars.com Inc,2017-06-01,2017-06-02,0,0,CARS.US
+CAT,Caterpillar Inc,1957-03-04,,1,0,CAT.US
+CB,Chubb Ltd,2010-07-14,,1,0,CB.US
+CBOE,Cboe Global Markets Inc,2017-03-01,,1,0,CBOE.US
+CBRE,CBRE Group Inc Class A,2006-11-10,,1,0,CBRE.US
+CCI,Crown Castle,1997-06-17,,1,0,CCI.US
+CCL,Carnival Corporation,1998-12-11,,1,0,CCL.US
+CDNS,Cadence Design Systems Inc,2017-09-18,,1,0,CDNS.US
+CDW,CDW Corp,2019-09-23,,1,0,CDW.US
+CE,Celanese Corporation,2018-12-24,2025-03-24,0,0,CE.US
+CEG,Constellation Energy Corp,2022-02-02,,1,0,CEG.US
+CELG,Celgene Corporation,,2019-11-21,0,1,CELG.US
+CERN,Cerner Corp,2010-04-29,2022-06-08,0,1,CERN.US
+CF,CF Industries Holdings Inc,2008-08-27,,1,0,CF.US
+CFG,"Citizens Financial Group, Inc.",2016-02-01,,1,0,CFG.US
+CHD,Church & Dwight Company Inc,2015-12-29,,1,0,CHD.US
+CHK,Chesapeake Energy Corporation,2025-03-24,,1,1,CHK.US
+CHRW,CH Robinson Worldwide Inc,2007-03-02,,1,0,CHRW.US
+CHTR,Charter Communications Inc,2016-09-08,,1,0,CHTR.US
+CHX,ChampionX Corporation,2018-05-09,2018-05-10,0,0,CHX.US
+CI,Cigna Corp,1976-06-30,,1,0,CI.US
+CINF,Cincinnati Financial Corporation,1997-12-18,,1,0,CINF.US
+CL,Colgate-Palmolive Company,1957-03-04,,1,0,CL.US
+CLX,The Clorox Company,1969-03-31,,1,0,CLX.US
+CMA,Comerica Inc,1995-12-01,2024-06-24,0,0,CMA.US
+CMCSA,Comcast Corp,2002-11-19,,1,0,CMCSA.US
+CME,CME Group Inc,2006-08-11,,1,0,CME.US
+CMG,Chipotle Mexican Grill Inc,2011-04-27,,1,0,CMG.US
+CMI,Cummins Inc,1965-03-31,,1,0,CMI.US
+CMS,CMS Energy Corporation,1957-03-04,,1,0,CMS.US
+CNC,Centene Corp,2016-03-30,,1,0,CNC.US
+CNDT,Conduent Inc,2017-01-03,2017-01-04,0,0,CNDT.US
+CNP,CenterPoint Energy Inc,1985-07-31,,1,0,CNP.US
+COF,Capital One Financial Corporation,1998-07-01,,1,0,COF.US
+COL,Rockwell Collins Inc,,2018-12-03,0,1,COL.US
+COO,"The Cooper Companies, Inc",2016-09-23,,1,0,COO.US
+COP,ConocoPhillips,1957-03-04,,1,0,COP.US
+COR,Cencora Inc.,2001-08-30,,1,0,COR.US
+COST,Costco Wholesale Corp,1993-10-01,,1,0,COST.US
+COTY,Coty Inc,2016-10-03,2020-09-21,0,0,COTY.US
+CPAY,Corpay Inc,2018-06-20,,1,0,CPAY.US
+CPB,Campbell Soup Company Common Stock,1957-03-04,,1,0,CPB.US
+CPRI,Capri Holdings Ltd,2013-11-13,2020-05-12,0,0,CPRI.US
+CPRT,Copart Inc,2018-07-02,,1,0,CPRT.US
+CPT,Camden Property Trust,2022-04-04,,1,0,CPT.US
+CRL,Charles River Laboratories,2021-05-14,,1,0,CRL.US
+CRM,Salesforce.com Inc,2008-09-12,,1,0,CRM.US
+CRWD,Crowdstrike Holdings Inc,2024-06-24,,1,0,CRWD.US
+CSCO,Cisco Systems Inc,1993-12-01,,1,0,CSCO.US
+CSGP,CoStar Group Inc,2022-09-19,,1,0,CSGP.US
+CSRA,CSRA Inc,2015-11-30,2018-04-04,0,1,CSRA.US
+CSX,CSX Corporation,1957-03-04,,1,0,CSX.US
+CTAS,Cintas Corporation,2001-03-01,,1,0,CTAS.US
+CTLT,Catalent Inc,2020-09-21,2024-12-23,0,1,CTLT.US
+CTRA,Coterra Energy Inc,2008-06-23,,1,0,CTRA.US
+CTSH,Cognizant Technology Solutions Corp Class A,2006-11-17,,1,0,CTSH.US
+CTVA,Corteva Inc,2019-06-03,,1,0,CTVA.US
+CTXS,Citrix Systems Inc,,2022-10-03,0,1,CTXS.US
+CVET,Covetrus Inc,2019-02-08,2019-02-11,0,1,CVET.US
+CVS,CVS Health Corp,1957-03-04,,1,0,CVS.US
+CVX,Chevron Corp,1957-03-04,,1,0,CVX.US
+CXO,Concho Resources Inc,2016-02-22,2021-01-21,0,1,CXO.US
+CZR,Caesars Entertainment Corporation,2021-03-22,,1,0,CZR.US
+D,Dominion Energy Inc,2016-11-30,,1,0,D.US
+DAL,Delta Air Lines Inc,2013-09-11,,1,0,DAL.US
+DASH,"DoorDash, Inc. Class A Common Stock",2025-03-24,,1,0,DASH.US
+DAY,Dayforce Inc.,2021-09-20,,1,0,DAY.US
+DD,Dupont De Nemours Inc,2019-04-02,,1,0,DD.US
+DE,Deere & Company,1957-03-04,,1,0,DE.US
+DECK,Deckers Outdoor Corporation,2024-03-18,,1,0,DECK.US
+DFS,Discover Financial Services,2007-07-02,,1,0,DFS.US
+DG,Dollar General Corporation,2012-12-03,,1,0,DG.US
+DGX,Quest Diagnostics Incorporated,2002-12-12,,1,0,DGX.US
+DHI,DR Horton Inc,2005-06-22,,1,0,DHI.US
+DHR,Danaher Corporation,1998-11-18,,1,0,DHR.US
+DINO,HF Sinclair Corp,2018-06-18,2021-06-04,0,0,DINO.US
+DIS,Walt Disney Company,1976-06-30,,1,0,DIS.US
+DISCA,Discovery Inc,,2022-04-11,0,1,DISCA.US
+DISH,DISH Network Corporation,2017-03-13,2023-06-20,0,1,DISH.US
+DLPH,Delphi Technologies PLC,2017-12-05,2017-12-06,0,1,DLPH.US
+DLR,Digital Realty Trust Inc,2016-05-18,,1,0,DLR.US
+DLTR,Dollar Tree Inc,2011-12-16,,1,0,DLTR.US
+DNB,Dun & Bradstreet Holdings Inc.,,2017-04-05,0,0,DNB_old.US
+DOC,Healthpeak Properties Inc,2008-03-31,,1,0,DOC.US
+DOV,Dover Corporation,1985-10-31,,1,0,DOV.US
+DOW,Dow Inc,2019-04-02,,1,0,DOW.US
+DPZ,Domino's Pizza Inc Common Stock,2020-05-12,,1,0,DPZ.US
+DRE,Duke Realty Corporation,2017-07-26,2022-10-03,0,1,DRE.US
+DRI,Darden Restaurants Inc,1995-05-31,,1,0,DRI.US
+DTE,DTE Energy Company,1957-03-04,,1,0,DTE.US
+DTM,DT Midstream Inc,2021-07-01,2021-07-02,0,0,DTM.US
+DUK,Duke Energy Corporation,1976-06-30,,1,0,DUK.US
+DVA,DaVita HealthCare Partners Inc,2008-07-31,,1,0,DVA.US
+DVN,Devon Energy Corporation,2000-08-30,,1,0,DVN.US
+DXC,DXC Technology Co,2017-04-04,2023-10-03,0,0,DXC.US
+DXCM,DexCom Inc,2020-05-12,,1,0,DXCM.US
+E,Eni SpA ADR,2017-04-03,2017-04-04,0,0,E.US
+EA,Electronic Arts Inc,2002-07-22,,1,0,EA.US
+EBAY,eBay Inc,2002-07-22,,1,0,EBAY.US
+ECL,Ecolab Inc,1989-01-31,,1,0,ECL.US
+ED,Consolidated Edison Inc,1957-03-04,,1,0,ED.US
+EFX,Equifax Inc,1997-06-19,,1,0,EFX.US
+EG,Everest Group Ltd,2017-06-19,,1,0,EG.US
+EIX,Edison International,1957-03-04,,1,0,EIX.US
+EL,Estee Lauder Companies Inc,2006-01-05,,1,0,EL.US
+ELV,Elevance Health Inc,2002-07-25,,1,0,ELV.US
+EMBC,Embecta Corp,2022-04-01,2022-04-04,0,0,EMBC.US
+EMN,Eastman Chemical Company,1994-01-01,,1,0,EMN.US
+EMR,Emerson Electric Company,1965-03-31,,1,0,EMR.US
+ENDP,Endo International PLC,2015-01-27,2017-03-02,0,1,ENDP.US
+ENPH,Enphase Energy Inc,2021-01-07,,1,0,ENPH.US
+EOG,EOG Resources Inc,2000-11-02,,1,0,EOG.US
+EPAM,EPAM Systems Inc,2021-12-14,,1,0,EPAM.US
+EQIX,Equinix Inc,2015-03-23,,1,0,EQIX.US
+EQR,Equity Residential,2001-12-03,,1,0,EQR.US
+EQT,EQT Corporation,2022-10-03,,1,0,EQT.US
+ERIE,Erie Indemnity Company,2024-09-23,,1,0,ERIE.US
+ES,Eversource Energy,2009-07-24,,1,0,ES.US
+ESRX,Express Scripts Holding Co,2003-09-25,2018-12-24,0,1,ESRX.US
+ESS,Essex Property Trust Inc,2014-04-02,,1,0,ESS.US
+ETFC,E*TRADE Financial LLC,,2020-10-07,0,1,ETFC.US
+ETN,Eaton Corporation PLC,1957-03-04,,1,0,ETN.US
+ETR,Entergy Corporation,1957-03-04,,1,0,ETR.US
+ETSY,Etsy Inc,2020-09-21,2024-09-23,0,0,ETSY.US
+EVHC,Envision Healthcare Holdings,2016-12-02,2018-10-11,0,1,EVHC.US
+EVRG,"Evergy, Inc.",2018-06-05,,1,0,EVRG.US
+EW,Edwards Lifesciences Corp,2011-03-31,,1,0,EW.US
+EXC,Exelon Corporation,1957-03-04,,1,0,EXC.US
+EXPD,"Expeditors International of Washington, Inc.",2007-10-10,,1,0,EXPD.US
+EXPE,Expedia Group Inc.,2007-10-02,,1,0,EXPE.US
+EXR,Extra Space Storage Inc,2016-01-19,,1,0,EXR.US
+F,Ford Motor Company,1957-03-04,,1,0,F.US
+FANG,Diamondback Energy Inc,2018-12-03,,1,0,FANG.US
+FAST,Fastenal Company,2008-09-12,,1,0,FAST.US
+FBIN,Fortune Brands Innovations Inc.,2016-06-24,2022-12-19,0,0,FBIN.US
+FCX,Freeport-McMoran Copper & Gold Inc,2011-07-01,,1,0,FCX.US
+FDS,FactSet Research Systems Inc,2021-12-20,,1,0,FDS.US
+FDX,FedEx Corporation,1980-12-31,,1,0,FDX.US
+FE,FirstEnergy Corporation,1997-11-28,,1,0,FE.US
+FFIV,F5 Networks Inc,2010-12-17,,1,0,FFIV.US
+FI,"Fiserv, Inc.",2001-04-02,,1,0,FI.US
+FICO,Fair Isaac Corporation,2023-03-20,,1,0,FICO.US
+FIS,Fidelity National Information Services Inc,2006-11-10,,1,0,FIS.US
+FITB,Fifth Third Bancorp,1996-03-29,,1,0,FITB.US
+FL,Foot Locker Inc,2016-04-04,2019-08-09,0,0,FL.US
+FLIR,FLIR Systems Inc.,,2021-05-14,0,1,FLIR.US
+FLR,Fluor Corporation,,2019-06-04,0,0,FLR.US
+FLS,Flowserve Corporation,,2021-03-22,0,0,FLS.US
+FMC,FMC Corporation,2009-08-19,2025-03-24,0,0,FMC.US
+FOX,Fox Corp Class B,2019-03-19,,1,0,FOX.US
+FOXA,Fox Corp Class A,2019-03-19,,1,0,FOXA.US
+FRC,FIRST REP BK SAN FRANCISCO CALIF N,2019-01-02,2023-05-04,0,1,FRC.US
+FRT,Federal Realty Investment Trust,2016-02-01,,1,0,FRT.US
+FSLR,First Solar Inc,2022-12-19,,1,0,FSLR.US
+FTI,TechnipFMC PLC,2009-06-05,2021-02-12,0,0,FTI.US
+FTNT,Fortinet Inc,2018-10-11,,1,0,FTNT.US
+FTR,Frontier Communications Corporation,,2017-03-20,0,1,FTR.US
+FTRE,Fortrea Holdings Inc.,2023-07-03,2023-07-06,0,0,FTRE.US
+FTV,Fortive Corp,2016-07-05,,1,0,FTV.US
+GD,General Dynamics Corporation,1957-03-04,,1,0,GD.US
+GDDY,Godaddy Inc,2024-06-24,,1,0,GDDY.US
+GE,GE Aerospace,1957-03-04,,1,0,GE.US
+GEHC,GE HealthCare Technologies Inc.,2023-01-04,,1,0,GEHC.US
+GEN,Gen Digital Inc.,2003-03-25,,1,0,GEN.US
+GEV,GE Vernova LLC,2024-04-02,,1,0,GEV.US
+GG,Goldcorp Inc,2017-02-01,2017-02-02,0,1,GG.US
+GGP,General Growth Properties Inc,2013-12-10,2018-08-28,0,1,GGP.US
+GILD,Gilead Sciences Inc,2004-07-01,,1,0,GILD.US
+GIS,General Mills Inc,1957-03-04,,1,0,GIS.US
+GL,Globe Life Inc,1989-04-30,,1,0,GL.US
+GLW,Corning Incorporated,1995-02-27,,1,0,GLW.US
+GM,General Motors Company,2013-06-07,,1,0,GM.US
+GNRC,Generac Holdings Inc,2021-03-22,,1,0,GNRC.US
+GOOG,Alphabet Inc Class C,2014-04-03,,1,0,GOOG.US
+GOOGL,Alphabet Inc Class A,2014-04-03,,1,0,GOOGL.US
+GPC,Genuine Parts Co,1973-12-31,,1,0,GPC.US
+GPN,Global Payments Inc,2016-04-25,,1,0,GPN.US
+GPS,Gap Inc,,2022-02-03,0,1,GPS.US
+GRMN,Garmin Ltd,2012-12-12,,1,0,GRMN.US
+GS,Goldman Sachs Group Inc,2002-07-22,,1,0,GS.US
+GT,Goodyear Tire & Rubber Co,,2019-02-27,0,0,GT.US
+GTX,Garrett Motion Inc,2018-10-01,2018-10-02,0,0,GTX.US
+GWW,WW Grainger Inc,1981-06-30,,1,0,GWW.US
+HAL,Halliburton Company,1957-03-04,,1,0,HAL.US
+HAR,Harman International Industries Inc./DE/,,2017-03-16,0,1,HAR.US
+HAS,Hasbro Inc,1984-09-30,,1,0,HAS.US
+HBAN,Huntington Bancshares Incorporated,1997-08-28,,1,0,HBAN.US
+HBI,Hanesbrands Inc,2015-03-23,2021-12-20,0,0,HBI.US
+HCA,HCA Holdings Inc,2015-01-27,,1,0,HCA.US
+HD,Home Depot Inc,1988-03-31,,1,0,HD.US
+HES,Hess Corporation,1984-05-31,,1,0,HES.US
+HIG,Hartford Financial Services Group,1957-03-04,,1,0,HIG.US
+HII,Huntington Ingalls Industries Inc,2018-01-03,,1,0,HII.US
+HLT,Hilton Worldwide Holdings Inc,2017-06-19,,1,0,HLT.US
+HOG,Harley-Davidson Inc,,2020-06-22,0,0,HOG.US
+HOLX,Hologic Inc,2016-03-30,,1,0,HOLX.US
+HON,Honeywell International Inc,1957-03-04,,1,0,HON.US
+HP,Helmerich and Payne Inc,2010-02-26,2020-05-22,0,0,HP.US
+HPE,Hewlett Packard Enterprise Co,2015-11-02,,1,0,HPE.US
+HPQ,HP Inc,1974-12-31,,1,0,HPQ.US
+HRB,H&R Block Inc,,2020-09-21,0,0,HRB.US
+HRL,Hormel Foods Corporation,2009-03-03,,1,0,HRL.US
+HSIC,Henry Schein Inc,2015-03-18,,1,0,HSIC.US
+HST,Host Hotels & Resorts Inc,2007-03-20,,1,0,HST.US
+HSY,Hershey Co,1957-03-04,,1,0,HSY.US
+HUBB,Hubbell Inc,2023-10-18,,1,0,HUBB.US
+HUM,Humana Inc,2012-12-10,,1,0,HUM.US
+HWM,Howmet Aerospace Inc,2016-10-21,,1,0,HWM.US
+IBM,International Business Machines,1957-03-04,,1,0,IBM.US
+ICE,Intercontinental Exchange Inc,2007-09-26,,1,0,ICE.US
+IDXX,IDEXX Laboratories Inc,2017-01-05,,1,0,IDXX.US
+IEX,IDEX Corporation,2019-08-09,,1,0,IEX.US
+IFF,International Flavors & Fragrances Inc,1976-03-31,,1,0,IFF.US
+ILMN,Illumina Inc,2015-11-19,2024-06-24,0,0,ILMN.US
+INCY,Incyte Corporation,2017-02-28,,1,0,INCY.US
+INFO_old1,Ihs Markit Ltd,2017-06-02,2022-03-02,0,1,INFO_old1.US
+INTC,Intel Corporation,1976-12-31,,1,0,INTC.US
+INTU,Intuit Inc,2000-12-05,,1,0,INTU.US
+INVH,Invitation Homes Inc,2022-09-19,,1,0,INVH.US
+IP,International Paper,1957-03-04,,1,0,IP.US
+IPG,Interpublic Group of Companies Inc,1992-10-01,,1,0,IPG.US
+IPGP,IPG Photonics Corporation,2018-03-07,2022-06-21,0,0,IPGP.US
+IQV,IQVIA Holdings Inc,2017-08-29,,1,0,IQV.US
+IR,Ingersoll Rand Inc,2020-03-02,,1,0,IR.US
+IRM,Iron Mountain Incorporated,2009-01-06,,1,0,IRM.US
+ISRG,Intuitive Surgical Inc,2008-06-02,,1,0,ISRG.US
+IT,Gartner Inc,2017-04-05,,1,0,IT.US
+ITW,Illinois Tool Works Inc,1986-02-28,,1,0,ITW.US
+IVZ,Invesco Plc,2008-08-21,,1,0,IVZ.US
+J,Jacobs Solutions Inc.,2007-10-26,,1,0,J.US
+JBGS,JBG SMITH Properties,2017-07-18,2017-07-19,0,0,JBGS.US
+JBHT,JB Hunt Transport Services Inc,2015-07-01,,1,0,JBHT.US
+JBL,Jabil Circuit Inc,2023-12-18,,1,0,JBL.US
+JCI,Johnson Controls International PLC,2010-08-27,,1,0,JCI.US
+JEF,Jefferies Financial Group Inc,,2019-09-26,0,0,JEF.US
+JKHY,Jack Henry & Associates Inc,2018-11-13,,1,0,JKHY.US
+JNJ,Johnson & Johnson,1973-06-30,,1,0,JNJ.US
+JNPR,Juniper Networks Inc,2006-06-02,,1,0,JNPR.US
+JPM,JPMorgan Chase & Co,1975-06-30,,1,0,JPM.US
+JWN,Nordstrom Inc,,2020-06-22,0,0,JWN.US
+K,Kellanova,1989-09-11,,1,0,K.US
+KD,Kyndryl Holdings Inc,2021-11-04,2021-11-05,0,0,KD.US
+KDP,Keurig Dr Pepper Inc,2022-06-21,,1,0,KDP.US
+KEY,KeyCorp,1994-03-01,,1,0,KEY.US
+KEYS,Keysight Technologies Inc,2018-11-06,,1,0,KEYS.US
+KHC,Kraft Heinz Co,2012-10-02,,1,0,KHC.US
+KIM,Kimco Realty Corporation,2006-04-04,,1,0,KIM.US
+KKR,KKR & Co LP,2024-06-24,,1,0,KKR.US
+KLAC,KLA-Tencor Corporation,1997-09-30,,1,0,KLAC.US
+KLG,WK Kellogg Co,2023-10-02,2023-10-03,0,0,KLG.US
+KMB,Kimberly-Clark Corporation,1957-03-04,,1,0,KMB.US
+KMI,Kinder Morgan Inc,2012-05-25,,1,0,KMI.US
+KMX,CarMax Inc,2010-06-28,,1,0,KMX.US
+KO,The Coca-Cola Company,1957-03-04,,1,0,KO.US
+KR,Kroger Company,1957-03-04,,1,0,KR.US
+KSS,Kohl's Corporation,,2020-09-21,0,0,KSS.US
+KSU,Kansas City Southern,2013-05-24,2021-12-14,0,1,KSU.US
+KTB,Kontoor Brands Inc,2019-05-23,2019-05-24,0,0,KTB.US
+KVUE,Kenvue Inc.,2023-08-25,,1,0,KVUE.US
+L,Loews Corp,1995-05-31,,1,0,L.US
+LDOS,Leidos Holdings Inc,2019-08-09,,1,0,LDOS.US
+LEG,Leggett & Platt Incorporated,,2021-12-20,0,0,LEG.US
+LEN,Lennar Corporation,2005-10-04,,1,0,LEN.US
+LEN-N,Lennar Corp.-Class B Temporary Placeholder Security (TPS),2017-11-09,2017-11-28,0,1,LEN-N.US
+LH,Laboratory Corporation of America Holdings,2004-11-01,,1,0,LH.US
+LHX,L3Harris Technologies Inc,2008-09-22,,1,0,LHX.US
+LII,Lennox International Inc,2024-12-23,,1,0,LII.US
+LIN,Linde plc Ordinary Shares,1992-07-01,,1,0,LIN.US
+LKQ,LKQ Corporation,2016-05-23,,1,0,LKQ.US
+LLL,JX Luxventure Ltd,,2019-07-01,0,1,LLL.US
+LLTC,Linear Technology Corp,,2017-03-13,0,1,LLTC.US
+LLY,Eli Lilly and Company,1970-12-31,,1,0,LLY.US
+LMT,Lockheed Martin Corporation,1957-03-04,,1,0,LMT.US
+LNC,Lincoln National Corporation,,2023-09-18,0,0,LNC.US
+LNT,Alliant Energy Corp,2016-07-01,,1,0,LNT.US
+LOW,Lowe's Companies Inc,1984-02-29,,1,0,LOW.US
+LRCX,Lam Research Corp,2012-06-05,,1,0,LRCX.US
+LTHM,Livent Corp,2019-03-04,2019-03-05,0,1,LTHM.US
+LULU,Lululemon Athletica Inc.,2023-10-18,,1,0,LULU.US
+LUMN,Lumen Technologies Inc,,2023-03-20,0,0,LUMN.US
+LUV,Southwest Airlines Company,1994-07-01,,1,0,LUV.US
+LVLT,Level 3 Communications Inc,2014-11-05,2017-10-13,0,1,LVLT.US
+LVS,Las Vegas Sands Corp,2019-10-03,,1,0,LVS.US
+LW,Lamb Weston Holdings Inc,2018-12-03,,1,0,LW.US
+LYB,LyondellBasell Industries NV,2012-09-05,,1,0,LYB.US
+LYV,Live Nation Entertainment Inc,2019-12-23,,1,0,LYV.US
+M,Macy’s Inc,,2020-04-06,0,0,M.US
+MA,Mastercard Inc,2008-07-18,,1,0,MA.US
+MAA,Mid-America Apartment Communities Inc,2016-12-02,,1,0,MAA.US
+MAC,Macerich Company,2013-05-09,2019-12-23,0,0,MAC.US
+MAR,Marriott International Inc,1998-05-29,,1,0,MAR.US
+MAS,Masco Corporation,1981-06-30,,1,0,MAS.US
+MAT,Mattel Inc,,2019-06-07,0,0,MAT.US
+MBC,MasterBrand Inc.,2022-12-15,2022-12-19,0,0,MBC.US
+MCD,McDonald’s Corporation,1970-06-30,,1,0,MCD.US
+MCHP,Microchip Technology Inc,2007-09-07,,1,0,MCHP.US
+MCK,McKesson Corporation,1999-01-13,,1,0,MCK.US
+MCO,Moodys Corporation,1998-07-01,,1,0,MCO.US
+MDLZ,Mondelez International Inc,2012-10-02,,1,0,MDLZ.US
+MDT,Medtronic PLC,1986-10-31,,1,0,MDT.US
+MET,MetLife Inc,2000-12-11,,1,0,MET.US
+META,Meta Platforms Inc.,2013-12-23,,1,0,META.US
+MGM,MGM Resorts International,2017-07-26,,1,0,MGM.US
+MHK,Mohawk Industries Inc,2013-12-23,,1,0,MHK.US
+MJN,Mead Johnson Nutrition CO,2009-12-18,2017-06-19,0,1,MJN.US
+MKC,McCormick & Company Incorporated,2003-03-20,,1,0,MKC.US
+MKTX,MarketAxess Holdings Inc,2019-07-01,,1,0,MKTX.US
+MLM,Martin Marietta Materials Inc,2014-07-02,,1,0,MLM.US
+MMC,Marsh & McLennan Companies Inc,1987-08-31,,1,0,MMC.US
+MMM,3M Company,1957-03-04,,1,0,MMM.US
+MNK,Mallinckrodt plc,2014-08-19,2017-07-26,0,1,MNK_old.US
+MNST,Monster Beverage Corp,2012-06-29,,1,0,MNST.US
+MO,Altria Group,1957-03-04,,1,0,MO.US
+MOH,Molina Healthcare Inc,2022-03-02,,1,0,MOH.US
+MON,Monument Circle Acquisition Corp,,2018-06-07,0,1,MON.US
+MOS,The Mosaic Company,2011-09-23,,1,0,MOS.US
+MPC,Marathon Petroleum Corp,2011-07-01,,1,0,MPC.US
+MPWR,Monolithic Power Systems Inc,2021-02-12,,1,0,MPWR.US
+MRK,Merck & Company Inc,1957-03-04,,1,0,MRK.US
+MRNA,Moderna Inc,2021-07-21,,1,0,MRNA.US
+MRO,Marathon Oil Corporation,1957-03-04,2024-11-26,0,1,MRO.US
+MRP_old,Millrose Properties Inc CL A,2025-01-21,2025-02-10,0,1,MRP_old.US
+MS,Morgan Stanley,1993-07-29,,1,0,MS.US
+MSCI,MSCI Inc,2018-04-04,,1,0,MSCI.US
+MSFT,Microsoft Corporation,1994-06-01,,1,0,MSFT.US
+MSI,Motorola Solutions Inc,1957-03-04,,1,0,MSI.US
+MTB,M&T Bank Corporation,2004-02-23,,1,0,MTB.US
+MTCH,Match Group Inc,2021-09-20,,1,0,MTCH.US
+MTD,Mettler-Toledo International Inc,2016-09-06,,1,0,MTD.US
+MU,Micron Technology Inc,1994-09-27,,1,0,MU.US
+MUR,Murphy Oil Corporation,,2017-07-26,0,0,MUR.US
+MXIM,Maxim Integrated Products Inc,2018-12-03,2021-08-30,0,1,MXIM.US
+NAVI,Navient Corp,2014-05-01,2018-06-05,0,0,NAVI.US
+NBL,Noble Energy Inc,,2020-10-12,0,1,NBL.US
+NCLH,Norwegian Cruise Line Holdings Ltd,2017-10-13,,1,0,NCLH.US
+NDAQ,Nasdaq Inc,2008-10-22,,1,0,NDAQ.US
+NDSN,Nordson Corporation,2022-02-15,,1,0,NDSN.US
+NEE,Nextera Energy Inc,1976-06-30,,1,0,NEE.US
+NEM,Newmont Goldcorp Corp,1969-06-30,,1,0,NEM.US
+NFLX,Netflix Inc,2010-12-17,,1,0,NFLX.US
+NFX,Newfield Exploration Company,2010-12-17,2019-02-15,0,1,NFX.US
+NI,NiSource Inc,2000-11-02,,1,0,NI.US
+NKE,Nike Inc,1988-11-30,,1,0,NKE.US
+NKTR,Nektar Therapeutics,2018-03-19,2019-10-03,0,0,NKTR.US
+NLSN,Nielsen Holdings PLC,2013-07-09,2022-10-12,0,1,NLSN.US
+NOC,Northrop Grumman Corporation,1957-03-04,,1,0,NOC.US
+NOV,NOV Inc.,,2021-09-20,0,0,NOV.US
+NOW,ServiceNow Inc,2019-11-21,,1,0,NOW.US
+NRG,NRG Energy Inc.,2010-01-29,,1,0,NRG.US
+NSC,Norfolk Southern Corporation,1957-03-04,,1,0,NSC.US
+NTAP,NetApp Inc,1999-06-25,,1,0,NTAP.US
+NTRS,Northern Trust Corporation,1998-01-30,,1,0,NTRS.US
+NUE,Nucor Corp,1985-04-30,,1,0,NUE.US
+NVDA,NVIDIA Corporation,2001-11-30,,1,0,NVDA.US
+NVR,NVR Inc,2019-09-26,,1,0,NVR.US
+NVT,nVent Electric PLC,2018-05-01,2018-05-02,0,0,NVT.US
+NWL,Newell Brands Inc,,2023-09-18,0,0,NWL.US
+NWS,News Corp B,2015-09-21,,1,0,NWS.US
+NWSA,News Corp A,2013-07-01,,1,0,NWSA.US
+NXPI,NXP Semiconductors NV,2021-03-22,,1,0,NXPI.US
+O,Realty Income Corporation,2015-04-07,,1,0,O.US
+ODFL,Old Dominion Freight Line Inc,2019-12-09,,1,0,ODFL.US
+OGN,Organon & Co,2021-06-03,2023-10-18,0,0,OGN.US
+OKE,ONEOK Inc,2010-03-15,,1,0,OKE.US
+OMC,Omnicom Group Inc,1997-12-31,,1,0,OMC.US
+ON,ON Semiconductor Corporation,2022-06-21,,1,0,ON.US
+ONL,Orion Office Reit Inc,2021-11-15,2021-11-16,0,0,ONL.US
+ORCL,Oracle Corporation,1989-08-31,,1,0,ORCL.US
+ORLY,O’Reilly Automotive Inc,2009-03-27,,1,0,ORLY.US
+OTIS,Otis Worldwide Corp,2020-04-03,,1,0,OTIS.US
+OXY,Occidental Petroleum Corporation,1957-03-04,,1,0,OXY.US
+PANW,Palo Alto Networks Inc,2023-06-20,,1,0,PANW.US
+PARA,Paramount Global Class B,1994-09-30,,1,0,PARA.US
+PAYC,Paycom Soft,2020-01-28,,1,0,PAYC.US
+PAYX,Paychex Inc,1998-10-01,,1,0,PAYX.US
+PBCT,People's United Financial Inc,,2022-04-04,0,1,PBCT.US
+PBI,Pitney Bowes Inc,,2017-03-01,0,0,PBI.US
+PCAR,PACCAR Inc,1980-12-31,,1,0,PCAR.US
+PCG,PG&E Corp,2022-10-03,,1,0,PCG.US
+PDCO,Patterson Companies Inc,,2018-03-19,0,0,PDCO.US
+PEG,Public Service Enterprise Group Inc,1957-03-04,,1,0,PEG.US
+PENN,Penn National Gaming Inc,2021-03-22,2022-09-19,0,0,PENN.US
+PEP,PepsiCo Inc,1957-03-04,,1,0,PEP.US
+PFE,Pfizer Inc,1957-03-04,,1,0,PFE.US
+PFG,Principal Financial Group Inc,2002-07-22,,1,0,PFG.US
+PG,Procter & Gamble Company,1957-03-04,,1,0,PG.US
+PGR,Progressive Corp,1997-08-04,,1,0,PGR.US
+PH,Parker-Hannifin Corporation,1985-11-30,,1,0,PH.US
+PHIN,PHINIA Inc.,2023-07-05,2023-07-06,0,0,PHIN.US
+PHM,PulteGroup Inc,1984-04-30,,1,0,PHM.US
+PKG,Packaging Corp of America,2017-07-26,,1,0,PKG.US
+PLD,Prologis Inc,2003-07-17,,1,0,PLD.US
+PLTR,Palantir Technologies Inc. Class A Common Stock,2024-09-23,,1,0,PLTR.US
+PM,Philip Morris International Inc,2008-03-31,,1,0,PM.US
+PNC,PNC Financial Services Group Inc,1988-04-30,,1,0,PNC.US
+PNR,Pentair PLC,2012-10-01,,1,0,PNR.US
+PNW,Pinnacle West Capital Corp,1999-10-04,,1,0,PNW.US
+PODD,Insulet Corporation,2023-03-15,,1,0,PODD.US
+POOL,Pool Corporation,2020-10-07,,1,0,POOL.US
+PPG,PPG Industries Inc,1957-03-04,,1,0,PPG.US
+PPL,PPL Corporation,2001-10-01,,1,0,PPL.US
+PRGO,Perrigo Company PLC,2011-12-16,2021-09-20,0,0,PRGO.US
+PRSP,Perspecta Inc,2018-06-01,2018-06-04,0,1,PRSP.US
+PRU,Prudential Financial Inc,2002-07-22,,1,0,PRU.US
+PSA,Public Storage,2005-08-19,,1,0,PSA.US
+PSX,Phillips 66,2012-05-01,,1,0,PSX.US
+PTC,PTC Inc,2021-04-20,,1,0,PTC.US
+PVH,PVH Corp,2013-02-14,2022-09-19,0,0,PVH.US
+PWR,Quanta Services Inc,2009-07-01,,1,0,PWR.US
+PXD,Pioneer Natural Resources Co,2008-09-24,2024-05-08,0,1,PXD.US
+PYPL,PayPal Holdings Inc,2015-07-20,,1,0,PYPL.US
+QCOM,Qualcomm Incorporated,1999-07-22,,1,0,QCOM.US
+QRVO,Qorvo Inc,2015-06-12,2024-12-23,0,0,QRVO.US
+R,Ryder System Inc,,2017-06-19,0,0,R.US
+RAI,Reynolds American Inc,,2017-07-26,0,1,RAI.US
+RCL,Royal Caribbean Cruises Ltd,2014-12-05,,1,0,RCL.US
+REG,Regency Centers Corporation,2017-03-02,,1,0,REG.US
+REGN,Regeneron Pharmaceuticals Inc,2013-05-01,,1,0,REGN.US
+REZI,Resideo Technologies Inc,2018-10-29,2018-10-30,0,0,REZI.US
+RF,Regions Financial Corporation,1998-08-28,,1,0,RF.US
+RHI,Robert Half International Inc,2000-12-05,2024-06-24,0,0,RHI.US
+RHT,Red Hat Inc,,2019-07-15,0,1,RHT.US
+RIG,Transocean Ltd,2013-10-29,2017-07-26,0,0,RIG.US
+RJF,Raymond James Financial Inc.,2017-03-20,,1,0,RJF.US
+RL,Ralph Lauren Corp Class A,2007-02-02,,1,0,RL.US
+RMD,ResMed Inc,2017-07-26,,1,0,RMD.US
+ROK,Rockwell Automation Inc,2000-03-12,,1,0,ROK.US
+ROL,Rollins Inc,2018-10-01,,1,0,ROL.US
+ROP,"Roper Technologies, Inc.",2009-12-23,,1,0,ROP.US
+ROST,Ross Stores Inc,2009-12-18,,1,0,ROST.US
+RRC,Range Resources Corp,2007-12-20,2018-06-18,0,0,RRC.US
+RSG,Republic Services Inc,2008-12-05,,1,0,RSG.US
+RTN,Raytheon Company,,2020-04-06,0,1,RTN.US
+RTX,Raytheon Technologies Corp,1957-03-04,,1,0,RTX.US
+RVTY,Revvity Inc.,1985-05-31,,1,0,RVTY.US
+SBAC,SBA Communications Corp,2017-09-01,,1,0,SBAC.US
+SBNY,Signature Bank,2021-12-20,2023-03-15,0,0,SBNY.US
+SBUX,Starbucks Corporation,2000-06-07,,1,0,SBUX.US
+SCG,SCANA Corporation,,2019-01-02,0,1,SCG.US
+SCHW,Charles Schwab Corp,1997-06-02,,1,0,SCHW.US
+SE,Sea Ltd,,2017-02-28,0,0,SE.US
+SEDG,SolarEdge Technologies Inc,2021-12-20,2023-12-18,0,0,SEDG.US
+SEE,Sealed Air Corporation,,2023-12-18,0,0,SEE.US
+SHW,Sherwin-Williams Co,1964-06-30,,1,0,SHW.US
+SIG,Signet Jewelers Ltd,2015-07-29,2018-03-19,0,0,SIG.US
+SIVB,SVB Financial Group,2018-03-19,2023-03-15,0,1,SIVB.US
+SJM,JM Smucker Company,2008-11-06,,1,0,SJM.US
+SLB,Schlumberger NV,1957-03-04,,1,0,SLB.US
+SLG,SL Green Realty Corp,2015-03-23,2021-03-22,0,0,SLG.US
+SLVM,Sylvamo Corp,2021-10-01,2021-10-04,0,0,SLVM.US
+SMCI,Super Micro Computer Inc,2024-03-18,,1,0,SMCI.US
+SNA,Snap-On Inc,1982-09-30,,1,0,SNA.US
+SNI,Scripps Networks Interactive Inc,,2018-03-07,0,1,SNI.US
+SNPS,Synopsys Inc,2017-03-16,,1,0,SNPS.US
+SO,Southern Company,1957-03-04,,1,0,SO.US
+SOLV,Solventum Corp.,2024-04-01,,1,0,SOLV.US
+SPG,Simon Property Group Inc,2002-06-26,,1,0,SPG.US
+SPGI,S&P Global Inc,1957-03-04,,1,0,SPGI.US
+SPLS,Staples Inc,,2017-09-18,0,1,SPLS.US
+SRCL,Stericycle Inc,,2018-12-03,0,0,SRCL.US
+SRE,Sempra Energy,2017-03-17,,1,0,SRE.US
+STE,STERIS plc,2019-12-23,,1,0,STE.US
+STI,Solidion Technology Inc.,,2019-12-09,0,0,STI.US
+STJ,St. Jude Medical Inc,,2017-01-05,0,1,STJ.US
+STLD,Steel Dynamics Inc,2022-12-22,,1,0,STLD.US
+STT,State Street Corp,2003-03-14,,1,0,STT.US
+STX,Seagate Technology PLC,2012-07-02,,1,0,STX.US
+STZ,Constellation Brands Inc Class A,2005-07-01,,1,0,STZ.US
+SW,Smurfit WestRock plc,2024-07-08,,1,0,SW.US
+SWK,Stanley Black & Decker Inc,1982-09-30,,1,0,SWK.US
+SWKS,Skyworks Solutions Inc,2015-03-12,,1,0,SWKS.US
+SWN,Southwestern Energy Company,,2017-04-04,0,1,SWN.US
+SYF,Synchrony Financial,2015-11-18,,1,0,SYF.US
+SYK,Stryker Corporation,2000-12-12,,1,0,SYK.US
+SYY,Sysco Corporation,1986-12-31,,1,0,SYY.US
+T,AT&T Inc,1983-11-30,,1,0,T.US
+TAP,Molson Coors Brewing Co Class B,1976-06-30,,1,0,TAP.US
+TDC,Teradata Corp,2007-10-01,2017-06-19,0,0,TDC.US
+TDG,Transdigm Group Incorporated,2016-06-03,,1,0,TDG.US
+TDY,Teledyne Technologies Incorporated,2020-06-22,,1,0,TDY.US
+TECH,Bio-Techne Corp,2021-08-30,,1,0,TECH.US
+TEL,TE Connectivity Ltd,2011-10-14,,1,0,TEL.US
+TER,Teradyne Inc,2020-09-21,,1,0,TER.US
+TFC,Truist Financial Corp,1997-12-04,,1,0,TFC.US
+TFCF,Twenty-First Century Fox Inc,2015-09-21,2019-03-20,0,1,TFCF.US
+TFCFA,Twenty-First Century Fox Inc,,2019-03-20,0,1,TFCFA.US
+TFX,Teleflex Incorporated,2019-01-18,2025-03-24,0,0,TFX.US
+TGNA,Tegna Inc,,2017-06-02,0,0,TGNA.US
+TGT,Target Corporation,1976-12-31,,1,0,TGT.US
+TIF,Tiffany & Co,,2021-01-07,0,1,TIF.US
+TJX,The TJX Companies Inc,1985-09-30,,1,0,TJX.US
+TMO,Thermo Fisher Scientific Inc,2004-08-03,,1,0,TMO.US
+TMUS,T-Mobile US Inc,2019-07-15,,1,0,TMUS.US
+TNL,Travel + Leisure Co,,2018-05-31,0,0,TNL.US
+TPL,Texas Pacific Land Trust,2024-11-26,,1,0,TPL.US
+TPR,Tapestry Inc,2004-09-01,,1,0,TPR.US
+TRGP,Targa Resources Inc,2022-10-12,,1,0,TRGP.US
+TRIP,TripAdvisor Inc,2011-12-20,2019-12-23,0,0,TRIP.US
+TRMB,Trimble Inc,2021-01-21,,1,0,TRMB.US
+TROW,T. Rowe Price Group Inc,2019-07-29,,1,0,TROW.US
+TRV,The Travelers Companies Inc,2002-08-21,,1,0,TRV.US
+TSCO,Tractor Supply Company,2014-01-24,,1,0,TSCO.US
+TSLA,Tesla Inc,2020-12-21,,1,0,TSLA.US
+TSN,Tyson Foods Inc,2005-08-10,,1,0,TSN.US
+TSS,Total System Services Inc,,2019-09-23,0,1,TSS.US
+TT,Trane Technologies plc,2010-11-17,,1,0,TT.US
+TTWO,Take-Two Interactive Software Inc,2018-03-19,,1,0,TTWO.US
+TWTR,Twitter Inc,2018-06-07,2022-11-01,0,1,TWTR.US
+TWX,Time Warner Inc,,2018-06-20,0,1,TWX.US
+TXN,Texas Instruments Incorporated,2001-03-12,,1,0,TXN.US
+TXT,Textron Inc,1978-12-31,,1,0,TXT.US
+TYL,Tyler Technologies Inc,2020-06-22,,1,0,TYL.US
+UA,Under Armour Inc C,2016-04-08,2022-06-21,0,0,UA.US
+UAA,Under Armour Inc A,2014-05-01,2022-06-21,0,0,UAA.US
+UAL,United Airlines Holdings Inc,2015-09-03,,1,0,UAL.US
+UBER,Uber Technologies Inc,2023-12-18,,1,0,UBER.US
+UDR,UDR Inc,2016-03-07,,1,0,UDR.US
+UHS,Universal Health Services Inc,2014-09-22,,1,0,UHS.US
+ULTA,Ulta Beauty Inc,2016-04-18,,1,0,ULTA.US
+UNH,UnitedHealth Group Incorporated,1994-07-01,,1,0,UNH.US
+UNM,Unum Group,,2021-09-20,0,0,UNM.US
+UNP,Union Pacific Corporation,1957-03-04,,1,0,UNP.US
+UPS,United Parcel Service Inc,2002-07-22,,1,0,UPS.US
+URBN,Urban Outfitters Inc,,2017-03-20,0,0,URBN.US
+URI,United Rentals Inc,2014-09-22,,1,0,URI.US
+USB,U.S. Bancorp,1999-11-01,,1,0,USB.US
+V,Visa Inc. Class A,2009-12-18,,1,0,V.US
+VAR,Varian Medical Systems Inc,,2021-04-20,0,1,VAR.US
+VFC,VF Corporation,1979-06-30,2024-04-03,0,0,VFC.US
+VIAB,Viacom Inc,,2019-12-05,0,1,VIAB.US
+VICI,VICI Properties Inc,2022-06-08,,1,0,VICI.US
+VLO,Valero Energy Corporation,2002-12-20,,1,0,VLO.US
+VLTO,Veralto Corporation,2023-10-02,,1,0,VLTO.US
+VMC,Vulcan Materials Company,1999-06-30,,1,0,VMC.US
+VNO,Vornado Realty Trust,,2023-01-05,0,0,VNO.US
+VNT,Vontier Corp,2020-10-09,2021-03-22,0,0,VNT.US
+VREX,Varex Imaging Corp,2017-01-30,2017-01-31,0,0,VREX.US
+VRSK,Verisk Analytics Inc,2015-10-08,,1,0,VRSK.US
+VRSN,VeriSign Inc,2006-02-01,,1,0,VRSN.US
+VRTX,Vertex Pharmaceuticals Inc,2013-09-23,,1,0,VRTX.US
+VSCO,Victoria's Secret & Co,2021-08-03,2021-08-04,0,0,VSCO.US
+VST,Vistra Energy Corp,2024-05-08,,1,0,VST.US
+VTR,Ventas Inc,2009-03-03,,1,0,VTR.US
+VTRS,Viatris Inc,2004-04-23,,1,0,VTRS.US
+VZ,Verizon Communications Inc,1983-11-30,,1,0,VZ.US
+WAB,Westinghouse Air Brake Technologies Corp,2019-02-26,,1,0,WAB.US
+WAT,Waters Corporation,2002-01-02,,1,0,WAT.US
+WBA,Walgreens Boots Alliance Inc,1979-12-31,,1,0,WBA.US
+WBD,Warner Bros Discovery Inc,2014-08-07,,1,0,WBD.US
+WCG,WellCare Health Plans Inc,2018-09-17,2020-01-28,0,1,WCG.US
+WDAY,Workday Inc,2024-12-23,,1,0,WDAY.US
+WDC,Western Digital Corporation,2009-07-01,,1,0,WDC.US
+WEC,WEC Energy Group Inc,2008-10-31,,1,0,WEC.US
+WELL,Welltower Inc,2009-01-30,,1,0,WELL.US
+WFC,Wells Fargo & Company,1976-06-30,,1,0,WFC.US
+WFM,Whole Foods Market Inc,,2017-08-29,0,1,WFM.US
+WHR,Whirlpool Corporation,1958-03-31,2024-03-18,0,0,WHR.US
+WM,Waste Management Inc,1998-08-31,,1,0,WM.US
+WMB,Williams Companies Inc,1975-03-31,,1,0,WMB.US
+WMT,Walmart Inc,1982-08-31,,1,0,WMT.US
+WRB,W. R. Berkley Corp,2019-12-05,,1,0,WRB.US
+WSM,Williams-Sonoma Inc,2025-03-24,,1,0,WSM.US
+WST,West Pharmaceutical Services Inc,2020-05-22,,1,0,WST.US
+WTW,Willis Towers Watson PLC,2016-01-05,,1,0,WTW.US
+WU,Western Union Co,,2021-12-20,0,0,WU.US
+WWE,World Wrestling Entertainment Inc,2025-03-24,,1,1,WWE.US
+WY,Weyerhaeuser Company,1979-10-01,,1,0,WY.US
+WYNN,Wynn Resorts Limited,2008-11-14,,1,0,WYNN.US
+XEC,Cimarex Energy Co,2014-06-23,2020-03-03,0,1,XEC.US
+XEL,Xcel Energy Inc,1957-03-04,,1,0,XEL.US
+XL,XL Fleet Corp,,2018-09-17,0,1,XL.US
+XLNX,Xilinx Inc,,2022-02-15,0,1,XLNX.US
+XOM,Exxon Mobil Corp,1957-03-04,,1,0,XOM.US
+XRAY,Dentsply Sirona Inc,2008-11-14,2024-04-03,0,0,XRAY.US
+XRX,Xerox Corp,,2021-03-22,0,0,XRX.US
+XYL,Xylem Inc,2011-10-31,,1,0,XYL.US
+YHOO,Yahoo! Inc,1999-12-08,2017-06-19,0,1,YHOO.US
+YUM,Yum! Brands Inc,1997-10-06,,1,0,YUM.US
+ZBH,Zimmer Biomet Holdings Inc,2001-08-07,,1,0,ZBH.US
+ZBRA,Zebra Technologies Corporation,2019-12-23,,1,0,ZBRA.US
+ZIMV,ZimVie Inc,2022-03-01,2022-03-02,0,0,ZIMV.US
+ZION,Zions Bancorporation,2001-06-22,2024-03-18,0,0,ZION.US
+ZTS,Zoetis Inc,2013-06-24,,1,0,ZTS.US

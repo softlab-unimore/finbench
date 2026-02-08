@@ -1,0 +1,220 @@
+Ticker,Name,StartDate,EndDate,EODHD
+GRMN,Garmin,,12/21/2015,GRMN.US
+HSIC,Henry Schein,,12/23/2019,HSIC.US
+ADBE,Adobe Inc.,,,ADBE.US
+TCFCB,21st Century Fox Class B,12/22/2014,3/19/2019,FOX.US
+INTU,Intuit,,,INTU.US
+BIDU,Baidu,,12/19/2022,BIDU.US
+JBHT,J.B. Hunt,2/7/2017,12/23/2019,JBHT.US
+SIAL,Sigma-Aldrich,,7/31/2015,SIAL.US
+UAL,United Airlines Holdings,12/24/2018,6/22/2020,UAL.US
+YHOO,Yahoo! Inc.,,6/19/2017,YHOO.US
+KLAC,KLA Corporation,12/19/2016,,KLAC.US
+EXC,Exelon,11/21/2019,,EXC.US
+AMD,Advanced Micro Devices,12/24/2018,,AMD.US
+SWKS,Skyworks Solutions,8/3/2015,12/19/2022,SWKS.US
+DELL,Dell,,10/29/2013,DELL.US
+EQIX,Equinix,,3/23/2015,EQIX.US
+CSGP,CoStar Group,12/23/2019,7/20/2020,CSGP.US
+CSGP,CoStar Group,12/19/2022,,CSGP.US
+CA,CA Inc.,,11/5/2018,CA.US
+BATRA,Atlanta Braves Holdings Inc Series A,4/18/2016,6/20/2016,BATRA.US
+FOX,Fox Corporation Class B,3/19/2019,12/20/2021,FOX.US
+GOOGL,Alphabet Inc Class A,,,GOOGL.US
+ASML,ASML Holding,12/18/2017,,ASML.US
+XRAY,Dentsply Sirona,6/20/2016,11/19/2018,XRAY.US
+SHPG,Shire PLC,10/19/2016,12/24/2018,SHPG.US
+LIFE,Life Technologies,,8/22/2013,LIFE_old.US
+DTV,DirecTV,,7/24/2015,DTV_old.US
+WBA,Walgreens Boots Alliance,3/23/2015,7/22/2024,WBA.US
+VMED,Virgin Media,,6/5/2013,VMED.US
+SMCI,Supermicro,7/22/2024,12/23/2024,SMCI.US
+CCEP,Coca-Cola Europacific Partners,12/18/2023,,CCEP.US
+CTAS,Cintas,12/19/2016,,CTAS.US
+ADP,Automatic Data Processing,,,ADP.US
+SPLS,Staples,,12/21/2015,SPLS.US
+AAPL,Apple Inc.,,,AAPL.US
+ARM,Arm Holdings,6/24/2024,,ARM.US
+FANG,Diamondback Energy,12/19/2022,,FANG.US
+GOOG,Alphabet Inc Class C,4/3/2014,,GOOG.US
+DASH,DoorDash,12/18/2023,,DASH.US
+AAL,American Airlines Group,12/22/2014,4/20/2020,AAL.US
+NVDA,Nvidia,,,NVDA.US
+CDW,CDW,12/23/2019,12/20/2021,CDW.US
+CDW,CDW,12/18/2023,,CDW.US
+KHC,Kraft Heinz,7/2/2015,,KHC.US
+WDC,Western Digital,,10/19/2020,WDC.US
+ZS,Zscaler,12/20/2021,,ZS.US
+PAYX,Paychex,,,PAYX.US
+DLTR,Dollar Tree,,11/18/2024,DLTR.US
+LMCA,Liberty Media,6/5/2013,6/20/2016,LMCA.US
+VOD,Vodafone,,12/24/2018,VOD.US
+ROST,Ross Stores,,,ROST.US
+CHKP,Check Point,,12/20/2021,CHKP.US
+NLOK,NortonLifeLock,,12/23/2019,NLOK.US
+SHLD,Sears Holdings,,12/23/2013,SHLD.US
+WBD,Warner Bros. Discovery,12/19/2022,,WBD.US
+SRCL,Stericycle,,12/19/2016,SRCL.US
+PCAR,Paccar,,,PCAR.US
+LBTYK,Liberty Global PLC Class C,12/22/2014,12/21/2020,LBTYK.US
+BATRK,Atlanta Braves Holdings Inc Series C,4/18/2016,6/20/2016,BATRK.US
+MAR,Marriott International,11/18/2013,,MAR.US
+TRIP,TripAdvisor,12/23/2013,4/24/2017,TRIP.US
+TTWO,Take-Two Interactive,12/18/2017,12/21/2020,TTWO.US
+TTWO,Take-Two Interactive,12/14/2023,,TTWO.US
+NXPI,NXP Semiconductors,12/23/2013,2/7/2017,NXPI.US
+NXPI,NXP Semiconductors,11/5/2018,,NXPI.US
+ADI,Analog Devices,,,ADI.US
+MAT,Mattel,,10/23/2017,MAT.US
+AXON,Axon Enterprise,12/23/2024,,AXON.US
+ENPH,Enphase Energy,11/21/2022,12/18/2023,ENPH.US
+WDAY,Workday,12/18/2017,,WDAY.US
+CPRT,Copart,12/23/2019,,CPRT.US
+WFM,Whole Foods Market,,12/19/2016,WFMIX.US
+BIIB,Biogen,,,BIIB.US
+NCLH,Norwegian Cruise Line Holdings,12/21/2015,12/18/2017,NCLH.US
+FOXA,Fox Corporation Class A,3/19/2019,12/20/2021,FOXA.US
+PEP,PepsiCo,7/23/2018,,PEP.US
+VRSK,Verisk Analytics,,,VRSK.US
+GFS,GlobalFoundries,12/19/2022,,GFS.US
+ISRG,Intuitive Surgical,,,ISRG.US
+VRTX,Vertex Pharmaceuticals,,,VRTX.US
+NFLX,Netflix,6/6/2013,,NFLX.US
+CDNS,Cadence Design Systems,12/18/2017,,CDNS.US
+MRVL,Marvell Technology,12/21/2020,,MRVL.US
+NTES,NetEase,3/16/2016,12/19/2022,NTES.US
+SGEN,Seagen Inc.,12/23/2019,12/14/2023,SGEN.US
+FAST,Fastenal,,,FAST.US
+CTXS,Citrix Systems,,12/21/2020,CTXS.US
+MTCH,Match Group,12/21/2020,12/19/2022,MTCH.US
+LILAK,Liberty Latin America Class C,7/2/2015,12/21/2015,LILAK.US
+EXPE,Expedia Group,12/21/2015,12/21/2020,EXPE.US
+TMUS,T-Mobile US,12/21/2015,,TMUS.US
+INTC,Intel,,,INTC.US
+CHTR,Charter Communications,7/25/2013,,CHTR.US
+APP,AppLovin,11/18/2024,,APP.US
+LLTC,Linear Technology,,10/19/2016,LLTC.US
+TCFCA,21st Century Fox Class A,,3/19/2019,FOXA.US
+JD,JD.com,7/29/2015,12/18/2023,JD.US
+LMCK,Liberty Media Series C,,6/20/2016,LMCKX.US
+MSTR,MicroStrategy,12/23/2024,,MSTR.US
+ENDP,Endo International,12/21/2015,7/18/2016,ENDP.US
+BMC,BMC Software,,7/25/2013,BMC.US
+MSFT,Microsoft,,,MSFT.US
+ESRX,Express Scripts,,12/24/2018,ESRX.US
+AVGO,Broadcom,2/1/2016,,AVGO.US
+REGN,Regeneron Pharmaceuticals,,,REGN.US
+WTW,Willis Towers Watson,12/24/2018,4/30/2020,WTW.US
+ALGN,Align Technology,10/23/2017,12/18/2023,ALGN.US
+CHRW,C. H. Robinson Worldwide,,12/21/2015,CHRW.US
+MELI,MercadoLibre,6/19/2017,,MELI.US
+QRTEA,Qurate Retail,,12/24/2018,QRTEA.US
+XEL,Xcel Energy,11/19/2018,,XEL.US
+WYNN,Wynn Resorts,4/24/2017,12/23/2019,WYNN.US
+MYL,Mylan,,12/23/2019,MYLD.US
+PLTR,Palantir Technologies,12/23/2024,,PLTR.US
+CTRX,Catamaran Corporation,,7/24/2015,CTRX.US
+AKAM,Akamai Technologies,,12/18/2017,AKAM.US
+KRFT,Kraft Foods,3/18/2013,7/2/2015,KRFT.US
+CMCSA,Comcast,,,CMCSA.US
+ORLY,O'Reilly Automotive,,,ORLY.US
+DDOG,Datadog,12/20/2021,,DDOG.US
+XLNX,Xilinx,,2/22/2022,XLNX.US
+CTSH,Cognizant,,,CTSH.US
+MU,Micron Technology,,,MU.US
+MXIM,Maxim Integrated Products,12/21/2015,8/26/2021,MXIM.US
+CELG,Celgene,,11/21/2019,CELG.US
+SHOP,Shopify,5/19/2025,,SHOP.US
+SBUX,Starbucks,,,SBUX.US
+DOCU,DocuSign,6/22/2020,12/19/2022,DOCU.US
+DISCK,Discovery Communications Series C,,12/18/2017,DISCK.US
+FFIV,F5 Networks,,12/22/2014,FFIV.US
+FI,Fiserv,,6/7/2023,FI.US
+CEG,Constellation Energy,2/2/2022,,CEG.US
+INCY,Incyte,10/7/2015,12/20/2021,INCY.US
+QCOM,Qualcomm,,,QCOM.US
+MDB,MongoDB,12/18/2023,5/19/2025,MDB.US
+TCOM,Trip.com,,12/20/2021,TCOM.US
+AMZN,Amazon,,,AMZN.US
+TSCO,Tractor Supply Company,12/23/2013,12/18/2017,TSCO.US
+MDLZ,Mondelez International,,,MDLZ.US
+ROP,Roper Technologies,12/18/2023,,ROP.US
+BMRN,BioMarin Pharmaceutical,7/27/2015,12/21/2020,BMRN.US
+HOLX,Hologic,12/19/2016,12/24/2018,HOLX.US
+SPLK,Splunk,12/23/2019,12/19/2022,SPLK.US
+SPLK,Splunk,12/18/2023,3/18/2024,SPLK.US
+CTRP,Ctrip,12/21/2015,7/29/2020,TCOM.US
+ULTA,Ulta Beauty,12/21/2015,12/21/2020,ULTA.US
+ALXN,Alexion Pharmaceuticals,,7/21/2021,ALXN.US
+CSCO,Cisco,,,CSCO.US
+SIRI,Sirius XM,,6/24/2024,SIRI.US
+CSX,CSX Corporation,2/16/2016,,CSX.US
+BKR,Baker Hughes,12/19/2022,,BKR.US
+HAS,Hasbro,12/19/2016,12/23/2019,HAS.US
+GILD,Gilead Sciences,,,GILD.US
+LCID,Lucid Group,12/20/2021,12/18/2023,LCID.US
+BRCM,Broadcom Corporation,,11/11/2015,BRCM.US
+AMAT,Applied Materials,,,AMAT.US
+ODFL,Old Dominion Freight Line,1/24/2022,,ODFL.US
+FOSL,Fossil Group,,12/23/2013,FOSL.US
+SNDK,SanDisk,,3/16/2016,SNDK.US
+ATVI,Activision Blizzard,,7/17/2023,ATVI.US
+GEHC,GE HealthCare,6/7/2023,,GEHC.US
+VIP,VimpelCom,10/29/2013,12/21/2015,VIP.US
+GMCR,Keurig Green Mountain,8/22/2013,12/21/2015,GMCR.US
+ZM,Zoom Video Communications,4/30/2020,12/18/2023,ZM.US
+MRNA,Moderna,7/20/2020,12/23/2024,MRNA.US
+NUAN,Nuance Communications,,12/23/2013,NUAN.US
+COST,Costco,,,COST.US
+DXCM,DexCom,4/20/2020,,DXCM.US
+STX,Seagate Technology,,12/24/2018,STX.US
+STRZA,Starz,1/15/2013,3/18/2013,STRZA.US
+EA,Electronic Arts,12/22/2014,,EA.US
+MNST,Monster Beverage,,,MNST.US
+EXPD,Expeditors International,,12/21/2015,EXPD.US
+ILMN,Illumina,12/23/2013,12/23/2024,ILMN.US
+DISH,Dish Network,12/23/2013,7/23/2018,DISH.US
+PANW,Palo Alto Networks,12/20/2021,,PANW.US
+LBTYA,Liberty Global,,12/21/2020,LBTYA.US
+CRWD,CrowdStrike,8/26/2021,,CRWD.US
+ADSK,Autodesk,,,ADSK.US
+ALTR,Altera,,10/7/2015,ALTR_old.US
+LRCX,Lam Research,12/22/2014,,LRCX.US
+GOLD,Randgold Resources,,11/18/2013,GOLD.US
+TTD,The Trade Desk,7/17/2023,,TTD.US
+IDXX,Idexx Laboratories,3/20/2017,,IDXX.US
+EBAY,EBay,,12/18/2023,EBAY.US
+TEAM,Atlassian,12/21/2020,,TEAM.US
+SNPS,Synopsys,12/18/2017,,SNPS.US
+PTON,Peloton,12/21/2020,1/24/2022,PTON.US
+LIN,Linde plc,3/18/2024,,LIN.US
+TXN,Texas Instruments,,,TXN.US
+BKNG,Booking Holdings,,,BKNG.US
+RIVN,Rivian Automotive,12/19/2022,6/20/2023,RIVN.US
+TSLA,Tesla Inc.,7/15/2013,,TSLA.US
+AMGN,Amgen,,,AMGN.US
+HON,Honeywell,7/21/2021,,HON.US
+VIAB,Viacom,,12/18/2017,VBVT.US
+OKTA,Okta,12/21/2020,11/21/2022,OKTA.US
+FTNT,Fortinet,12/20/2021,,FTNT.US
+META,Meta Platforms,,,META.US
+PRGO,Perrigo,,6/6/2013,PRGO.US
+DISCA,Discovery Communications Series A,,12/18/2017,DISCA.US
+AZN,AstraZeneca,2/22/2022,,AZN.US
+ANSS,Ansys,12/23/2019,,ANSS.US
+CERN,Cerner,,12/20/2021,CERN.US
+SBAC,SBA Communications,,3/20/2017,SBAC.US
+BBBY,Bed Bath & Beyond,,12/19/2016,BBBI.US
+PYPL,PayPal,11/11/2015,,PYPL.US
+ABNB,Airbnb,12/20/2021,,ABNB.US
+MCHP,Microchip Technology,7/18/2016,,MCHP.US
+PDD,PDD Holdings,8/24/2020,,PDD.US
+NTAP,NetApp,12/24/2018,8/24/2020,NTAP.US
+AEP,American Electric Power,12/21/2020,,AEP.US
+LULU,Lululemon Athletica,12/24/2018,,LULU.US
+ORCL,Oracle,,7/15/2013,ORCL.US
+KDP,Keurig Dr Pepper,10/19/2020,,KDP.US
+LILA,Liberty Latin America Class A,7/2/2015,12/21/2015,LILA.US
+VRSN,VeriSign,12/24/2018,12/19/2022,VRSN.US
+CMCSK,Comcast Corporation Class A,12/22/2014,12/11/2015,CMCSK.US
+ON,Onsemi,6/20/2023,,ON.US
