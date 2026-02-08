@@ -29,6 +29,7 @@
 !*/*/dataset/*.md
 !Evaluation/data/
 !Evaluation/data/**
+Evalution/config.json
 
 hats/node_classification/src/data/
 hats/graph_classification/src/data/
