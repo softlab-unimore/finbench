@@ -48,7 +48,7 @@ def get_metrics(preds, labels):
     labels = np.array(labels).reshape(-1)
 
     metrics = {
-        'F1_macro': f1_score(labels, preds, average='macro'),
+        'F1': f1_score(labels, preds, average='macro'),
         'Accuracy': accuracy_score(labels, preds),
         'Precision': precision_score(labels, preds, average='macro'),
         'Recall': recall_score(labels, preds, average='macro'),
