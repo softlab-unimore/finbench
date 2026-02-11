@@ -53,7 +53,7 @@ Check the docs or the training script in the model folder for model-specific fla
 
 
 Almost all models were tested with **Python 3.10**; however, some exceptions (e.g., Adv-ASLTM) required different Python versions due to library compatibility issues.
-
+Check the ```README.md``` in each model folder for specific Python version requirements and installation instructions.
 
 ## License
 
