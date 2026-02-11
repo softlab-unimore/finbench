@@ -50,6 +50,8 @@ Note: Each model implementation includes their own `requirements.txt` and exampl
 - Model training: all the models provide a `train.py` (or `train_2D.py` / `train_3D.py`) script inside their folder. Typical usage (adjust per-model arguments):
 
 Check the docs or the training script in the model folder for model-specific flags and data requirements. 
+
+
 Almost all models were tested with **Python 3.10**; however, some exceptions (e.g., Adv-ASLTM) required different Python versions due to library compatibility issues.
 
 
