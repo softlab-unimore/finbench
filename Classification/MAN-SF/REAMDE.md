@@ -1,6 +1,6 @@
-# CNNPred model
+# MAN-SF model
 
-This folder contains an implementation of the CNNPred model for financial time-series classification.
+This folder contains an implementation of the MAN-SF model for financial time-series classification.
 
 Requirements
 - Python 3.10 (recommended)
@@ -8,8 +8,8 @@ Requirements
 Conda-based installation (Windows PowerShell)
 1. Create and activate a conda environment with Python 3.10:
 ```powershell
-conda create -n CNNPred python=3.10 -y
-conda activate CNNPred
+conda create -n MAN-SF python=3.10-y
+conda activate MAN-SF
 ```
 2. Upgrade pip and install dependencies from `requirements.txt`:
 ```powershell
@@ -19,12 +19,11 @@ pip install -r requirements.txt
 Training example
 Run training with default-ish parameters (PowerShell):
 ```powershell
-python train2D.py --data_path ../../Evaluation/data --universe <universe>   
-python train3D.py --data_path ../../Evaluation/data --universe <universe>   
+python train.py --data_path ../../Evaluation/data --universe <universe> 
 ```
-Main command-line arguments (see `train2D.py` and `train3D.py` for full list):
-- `--data_path`: path to data folder 
-- `--universe`: dataset universe 
+Main command-line arguments (see `train.py` for full list):
+- `--data_path`: path to data folder
+- `--universe`: dataset universe
 - `--seq_len`: lookback window length used as model input
 - `--pred_len`: number of future steps to predict
 - `--start_date`, `--end_train_date`, `--start_valid_date`, `--end_valid_date`, `--start_test_date`, `--end_date`: date boundaries defining the full dataset and the train/validation/test splits
