@@ -2,6 +2,8 @@
 
 FinBench is a collection of tools, datasets and example implementations to evaluate and experiment with models and algorithms in the financial domain (time-series forecasting, ranking, portfolio simulation, factor modeling, etc.). The repository aims to provide a reproducible foundation for research, benchmarking and rapid prototyping in quantitative finance and financial machine learning.
 
+![FinBench Architecture](finbench.png)
+
 ## Key features
 
 - Structured datasets and data loaders for common financial tasks.
