@@ -183,12 +183,12 @@ def inference(model, data_loader, stock2concept_matrix=None):
 
 def create_loaders(args):
 
-    df_alpha = pd.read_csv(f'./data/{args.universe}/{args.universe}_alpha360.csv')
-    tickers = filter_constituents_by_date(pd.read_csv(f'./data/{args.universe}/{args.universe}_constituents.csv'), args.start_test_date)
+    df_alpha = pd.read_csv(f'{args.data_path}/{args.universe}/{args.universe}_alpha360.csv')
+    tickers = filter_constituents_by_date(pd.read_csv(f'{args.data_path}/{args.universe}/{args.universe}_constituents.csv'), args.start_test_date)
     df_alpha = df_alpha[df_alpha['instrument'].isin(tickers['EODHD'].tolist())]
 
     # Extract labels
-    df_close = pd.read_csv(f'./data/{args.universe}/{args.universe}.csv', usecols=['date', 'instrument', 'adj_close'])
+    df_close = pd.read_csv(f'{args.data_path}/{args.universe}/{args.universe}.csv', usecols=['date', 'instrument', 'adj_close'])
     df_close = df_close.sort_values(['instrument', 'date'])
     df_close['Label'] = df_close.groupby('instrument')['adj_close'].transform(lambda x: (x.shift(-args.pred_len) - x) / x)
     df_alpha, df_close = df_alpha.rename(columns={'date': 'datetime'}), df_close.rename(columns={'date': 'datetime'})
@@ -205,7 +205,7 @@ def create_loaders(args):
     df_alpha = df_alpha.set_index(['datetime', 'instrument'])
 
     # Exctract concept matrix
-    stock2concept_matrix = np.load(f'./data/{args.universe}/{args.universe}_inc_matrix.npz')
+    stock2concept_matrix = np.load(f'{args.data_path}/{args.universe}/{args.universe}_inc_matrix.npz')
 
     tickers_df = set(df_alpha.index.get_level_values('instrument').unique())
     tickers_matrix = set(stock2concept_matrix['tickers'])
@@ -216,7 +216,7 @@ def create_loaders(args):
     df_alpha['stock_index'] = df_alpha.index.get_level_values('instrument').map(stock_index).astype(int)
 
     # Exctract market value
-    df_market_value = pd.read_csv(f'./data/{args.universe}/{args.universe}_market_cap.csv')
+    df_market_value = pd.read_csv(f'{args.data_path}/{args.universe}/{args.universe}_market_cap.csv')
     df_market_value = df_market_value.rename(columns={'date': 'datetime'}).set_index(['datetime', 'instrument'])
     df_market_value = df_market_value[['market_cap']]
     df_market_value = df_market_value / 1000000000
@@ -379,6 +379,7 @@ def parse_args():
     parser = argparse.ArgumentParser()
 
     # data
+    parser.add_argument('--data_path', type=str, default='./data')
     parser.add_argument('--model_name', type=str, default='HIST')
     parser.add_argument('--run_name', type=str, default='HIST')
     parser.add_argument('--universe', type=str, default='sp500')

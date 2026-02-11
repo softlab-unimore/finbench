@@ -108,7 +108,7 @@ def select_valid_ticker(df, start_date, start_test, end_date, seq_len=20):
     return df, valid_tickers
 
 def preprocess_dataset(args):
-    constituents = pd.read_csv(f'{args.data_path}/{args.universe}/{args.universe}_constituents.csv')
+    constituents = pd.read_csv(f'{args.data_path}/constituents/eodhd/{args.universe}.csv')
     tickers = filter_constituents_by_date(constituents, args.start_test)
 
     df = pd.read_csv(f'{args.data_path}/{args.universe}/{args.universe}.csv')

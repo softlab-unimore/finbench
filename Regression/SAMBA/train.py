@@ -93,12 +93,12 @@ if __name__=='__main__':
     df_tech = df_tech[['instrument', 'date', 'vol', 'mom1', 'mom2', 'mom3', 'roc5', 'roc10', 'roc15', 'roc20', 'ema10',
                        'ema20', 'ema50', 'ema200']]
 
-    df_cnnpred = pd.read_csv(f'{args.get("data_path")}/{args.get("universe")}/cnnpred_market.csv')
+    df_cnnpred = pd.read_csv(f'{args.get("data_path")}/cnnpred_market.csv')
 
     df = df_tech.merge(df_close, how='inner', on=['instrument', 'date'])
     df = df.merge(df_cnnpred, on='date', how='inner')
 
-    constituents = pd.read_csv(f'{args.get("data_path")}/{args.get("universe")}/{args.get("universe")}_constituents.csv')
+    constituents = pd.read_csv(f'{args.get("data_path")}/constituents/eodhd/{args.get("universe")}.csv')
     tickers = filter_constituents_by_date(constituents, args.get("start_test_date"))['EODHD'].tolist()
     df = df[df['instrument'].isin(tickers)]
 

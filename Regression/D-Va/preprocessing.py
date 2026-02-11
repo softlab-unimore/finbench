@@ -32,8 +32,8 @@ def filter_constituents_by_date(constituents: pd.DataFrame, test_start_date: str
 
 
 def load_dataset(start_date, end_date, train_end_date, val_end_date, start_test_date, path, universe, job_id, batch_size, pred_len, seq_len):
-    data = pd.read_csv(f'{path}/{universe}.csv')
-    constituents = pd.read_csv(f'{path}/{universe}_constituents.csv')
+    data = pd.read_csv(f'{path}/{universe}/{universe}.csv')
+    constituents = pd.read_csv(f'{path}/constituents/eodhd/{universe}.csv')
     tickers = filter_constituents_by_date(constituents, start_test_date)['EODHD'].tolist()
     data = data[data['volume'] > 0]
 
@@ -64,7 +64,7 @@ def load_dataset(start_date, end_date, train_end_date, val_end_date, start_test_
         test_df = df[df['date'] > val_end_date]
 
         if len(df) > 0 and len(train_df) >= 251 and len(val_df) >= len(train_df) * 0.1 and len(test_df) - pred_len - seq_len >= batch_size:
-            df.to_csv(f'{path}/preprocessed_{job_id}/{ticker.replace(".","_")}.csv', index=False)
+            df.to_csv(f'{path}_preprocessed/preprocessed_{job_id}/{ticker.replace(".","_")}.csv', index=False)
             available_tickers.append(ticker)
 
     return available_tickers

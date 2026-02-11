@@ -73,7 +73,7 @@ if __name__ == '__main__':
     os.makedirs(metrics_path, exist_ok=True)
 
     df_alpha = pd.read_csv(f'{args.data_path}/{args.universe}/{args.universe}_alpha360.csv')
-    tickers = filter_constituents_by_date(pd.read_csv(f'{args.data_path}/{args.universe}/{args.universe}_constituents.csv'), args.start_test_date)
+    tickers = filter_constituents_by_date(pd.read_csv(f'{args.data_path}/constituents/eodhd/{args.universe}.csv'), args.start_test_date)
     df_alpha = df_alpha[df_alpha['instrument'].isin(tickers['EODHD'].tolist())]
 
     # Extract labels

@@ -218,21 +218,21 @@ def select_valid_ticker(df, start_date, end_date):
 
 
 def train(args, model_save_path, metrics_path, train_optimizer, lr_scheduler):
-    if not os.path.exists(args.dataset_dir_path):
+    if not os.path.exists(args.data_path):
         raise FileExistsError('Data dir not exists')
 
     if args.data_preprocessing:
         os.makedirs('./checkpoints', exist_ok=True)
 
-        df_alpha = pd.read_csv(os.path.join(args.dataset_dir_path, f"{args.universe}_alpha158.csv"))
-        tickers = filter_constituents_by_date(pd.read_csv(os.path.join(args.dataset_dir_path, f'{args.universe}_constituents.csv')), args.start_test_date)
+        df_alpha = pd.read_csv(f"{args.data_path}/{args.universe}/{args.universe}_alpha158.csv")
+        tickers = filter_constituents_by_date(pd.read_csv(f'{args.data_path}/constituents/eodhd/{args.universe}.csv'), args.start_test_date)
         df_alpha = df_alpha[df_alpha['instrument'].isin(tickers['EODHD'].tolist())]
 
-        market_index = pd.read_csv(os.path.join(args.dataset_dir_path, f'{args.nation}_market.csv'))
+        market_index = pd.read_csv(f'{args.data_path}/{args.nation}_market.csv')
         df_alpha = pd.merge(df_alpha, market_index, how='left', on='date')
 
         # Extract labels
-        df_close = pd.read_csv(os.path.join(args.dataset_dir_path, f"{args.universe}.csv"))[['date', 'instrument', 'adj_close']]
+        df_close = pd.read_csv(f"{args.data_path}/{args.universe}/{args.universe}.csv")[['date', 'instrument', 'adj_close']]
         df_close = df_close.sort_values(['instrument', 'date'])
         df_close['Label'] = df_close.groupby('instrument')['adj_close'].transform(lambda x: (x.shift(-args.pred_len) - x) / x)
         df_alpha = df_alpha.merge(df_close[['date', 'instrument', 'Label']], on=['date', 'instrument'], how='left')
@@ -356,7 +356,7 @@ if __name__=='__main__':
     # Dataset Parameters
     args.add_argument('--model_name', type=str, default='MATCC')
     args.add_argument('--universe', type=str, default='sxxp')
-    args.add_argument('--dataset_dir_path', type=str, default='./data/sxxp')
+    args.add_argument('--data_path', type=str, default='./data')
     args.add_argument('--data_preprocessing', action='store_true', default=False)
     args.add_argument('--nation', type=str, default='us')
 

@@ -73,7 +73,7 @@ def main(args, metrics_path, data_args):
 
     # Load dataset
     dataset = pd.read_csv(f'{args.data_path}/{args.universe}/{args.universe}_alpha158.csv')
-    tickers = filter_constituents_by_date(pd.read_csv(f'{args.data_path}/{args.universe}/{args.universe}_constituents.csv'), args.start_test_date)
+    tickers = filter_constituents_by_date(pd.read_csv(f'{args.data_path}/constituents/eodhd/{args.universe}.csv'), args.start_test_date)
     dataset = dataset[dataset['instrument'].isin(tickers['EODHD'].tolist())].copy()
 
     dataset.rename(columns={'date': 'datetime'}, inplace=True)

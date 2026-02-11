@@ -147,7 +147,7 @@ def date_to_weekday(df):
 
 def load_dataset(data_path, universe, start_date, end_date, end_train_date, end_valid_date, seq_len=5, pred_len=1):
     
-    constituents = pd.read_csv(f'{data_path}/{universe}/{universe}_constituents.csv')
+    constituents = pd.read_csv(f'{data_path}/constituents/eodhd/{universe}.csv')
     constituents = filter_constituents_by_date(constituents, end_valid_date)
 
     data = pd.read_csv(f'{data_path}/{universe}/{universe}_tech.csv')

@@ -83,7 +83,7 @@ class Feeder(torch.utils.data.Dataset):
 
     def load_data(self, flag):
         dataset = pd.read_csv(f'{self.arg.data_path}/{self.arg.universe}/{self.arg.universe}.csv')
-        constituents = pd.read_csv(f'{self.arg.data_path}/{self.arg.universe}/{self.arg.universe}_constituents.csv')
+        constituents = pd.read_csv(f'{self.arg.data_path}/constituents/eodhd/{self.arg.universe}.csv')
         tickers = filter_constituents_by_date(constituents, self.arg.start_test_date)['EODHD'].tolist()
         dataset = dataset[dataset['instrument'].isin(tickers)]
         dataset = dataset[['instrument', 'date', 'close']]

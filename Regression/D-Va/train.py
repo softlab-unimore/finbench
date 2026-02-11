@@ -36,7 +36,7 @@ if __name__=='__main__':
     # Load data
     parser.add_argument('--universe', type=str, default='sx5e')
     parser.add_argument('--model_name', type=str, default='DVa')
-    parser.add_argument('--root_path', type=str, default='./data/sx5e', help='root path of the data files')
+    parser.add_argument('--data_path', type=str, default='./data', help='root path of the data files')
     parser.add_argument('--checkpoints', type=str, default='./checkpoints/', help='location of model checkpoints')
     parser.add_argument('--job_id', type=int, default=0, help='job id')
 
@@ -108,12 +108,12 @@ if __name__=='__main__':
     print('Args in experiment:')
     print(args)
 
-    os.makedirs(f'{args.root_path}/preprocessed_{args.job_id}', exist_ok=True)
+    os.makedirs(f'{args.data_path}_preprocessed/preprocessed_{args.job_id}', exist_ok=True)
     tickers = load_dataset(args.start_date, args.end_date, args.end_train_date, args.end_valid_date, args.start_test_date,
-                           args.root_path, args.universe, args.job_id, args.batch_size, args.sequence_length, args.prediction_length)
+                           args.data_path, args.universe, args.job_id, args.batch_size, args.sequence_length, args.prediction_length)
 
     Exp = Exp_Model
-    train_setting = f'tp{args.root_path.split(os.sep)[-1]}_sl{ args.sequence_length}_seed{args.seed}_jobid{args.job_id}'
+    train_setting = f'tp{args.universe}_sl{ args.sequence_length}_seed{args.seed}_jobid{args.job_id}'
 
     preds = []
     labels = []
@@ -127,7 +127,7 @@ if __name__=='__main__':
     val_last_dates = []
     val_tickers = []
 
-    args.root_path = f'{args.root_path}/preprocessed_{args.job_id}'
+    args.root_path = f'{args.data_path}_preprocessed/preprocessed_{args.job_id}'
 
     for ticker in tickers:
         print('-----------------------------------------')

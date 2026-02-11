@@ -35,7 +35,7 @@ def filter_constituents_by_date(constituents: pd.DataFrame, test_start_date: str
 
 def load_prices(args):
     dataset = pd.read_csv(f'{args.data_path}/{args.universe}/{args.universe}.csv')
-    constituents = pd.read_csv(f'{args.data_path}/{args.universe}/{args.universe}_constituents.csv')
+    constituents = pd.read_csv(f'{args.data_path}/constituents/eodhd/{args.universe}.csv')
     tickers = filter_constituents_by_date(constituents, args.start_test_date)['EODHD'].tolist()
     dataset = dataset[dataset['instrument'].isin(tickers)]
 
@@ -102,7 +102,7 @@ def process_news_file(args_tuple):
 
 def encode_news(tickers, dates, args, batch_size=512):
 
-    dir_path = f'{args.data_path}/{args.universe}/news'
+    dir_path = f'{args.data_path}/news'
 
     start_year = args.start_date.split('-')[0]
     end_year = args.end_date.split('-')[0]

@@ -39,7 +39,7 @@ def dataset_normalization(dataset, max_values):
 def load_dataset(data_path, universe, start_date, end_train_date, end_valid_date, start_test_date, end_date, pred_len, lookback_length):
 
     dataset = pd.read_csv(f'{data_path}/{universe}/{universe}.csv')
-    constituents = pd.read_csv(f'{data_path}/{universe}/{universe}_constituents.csv')
+    constituents = pd.read_csv(f'{data_path}/constituents/eodhd/{universe}.csv')
     tickers = filter_constituents_by_date(constituents, start_test_date)['EODHD'].tolist()
     dataset = dataset[dataset['instrument'].isin(tickers)]
 

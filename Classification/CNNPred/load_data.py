@@ -29,12 +29,12 @@ def read_datasets(args):
     df_tech = df_tech[['instrument', 'date', 'vol', 'mom1', 'mom2', 'mom3', 'roc5', 'roc10', 'roc15', 'roc20', 'ema10',
                        'ema20', 'ema50', 'ema200']]
 
-    df_cnnpred = pd.read_csv(f'{args.data_path}/{args.universe}/cnnpred_market.csv')
+    df_cnnpred = pd.read_csv(f'{args.data_path}/cnnpred_market.csv')
 
     dataset = df_tech.merge(df_close, how='inner', on=['instrument', 'date'])
     dataset = dataset.merge(df_cnnpred, on='date', how='inner')
 
-    constituents = pd.read_csv(f'{args.data_path}/{args.universe}/{args.universe}_constituents.csv')
+    constituents = pd.read_csv(f'{args.data_path}/constituents/eodhd/{args.universe}.csv')
     tickers = filter_constituents_by_date(constituents, args.start_test_date)['EODHD'].tolist()
     dataset = dataset[dataset['instrument'].isin(tickers)]
 

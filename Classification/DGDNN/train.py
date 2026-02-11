@@ -246,7 +246,7 @@ def main() -> None:
     os.makedirs(metrics_path, exist_ok=True)
 
     df = pd.read_csv(f'{args.data_path}/{args.universe}/{args.universe}.csv')
-    const = pd.read_csv(f'{args.data_path}/{args.universe}/{args.universe}_constituents.csv')
+    const = pd.read_csv(f'{args.data_path}/constituents/eodhd/{args.universe}.csv')
     tickers = filter_constituents_by_date(const, args.start_test_date)
     df = df[df['instrument'].isin(tickers['EODHD'].tolist())]
 
