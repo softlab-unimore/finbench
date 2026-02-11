@@ -30,7 +30,7 @@ def create_saving_path(args):
     return model_save_path, metrics_path, log_dir
 
 def extract_labels(df, args, pred_len):
-    df_close = pd.read_csv(f'./data/{args.universe}/{args.universe}.csv')[['date', 'instrument', 'adj_close']]
+    df_close = pd.read_csv(f'{args.data_path}/{args.universe}/{args.universe}.csv')[['date', 'instrument', 'adj_close']]
     df_close.rename(columns={'date': 'datetime'}, inplace=True)
     df_close['datetime'] = pd.to_datetime(df_close['datetime'])
     df_close = df_close.sort_values(['instrument', 'datetime'])
@@ -72,8 +72,8 @@ def main(args, metrics_path, data_args):
     factorVAE = FactorVAE(feature_extractor, factor_encoder, factor_decoder, factor_predictor)
 
     # Load dataset
-    dataset = pd.read_csv(f'./data/{args.universe}/{args.universe}_alpha158.csv')
-    tickers = filter_constituents_by_date(pd.read_csv(f'./data/{args.universe}/{args.universe}_constituents.csv'), args.start_test_date)
+    dataset = pd.read_csv(f'{args.data_path}/{args.universe}/{args.universe}_alpha158.csv')
+    tickers = filter_constituents_by_date(pd.read_csv(f'{args.data_path}/{args.universe}/{args.universe}_constituents.csv'), args.start_test_date)
     dataset = dataset[dataset['instrument'].isin(tickers['EODHD'].tolist())].copy()
 
     dataset.rename(columns={'date': 'datetime'}, inplace=True)
@@ -207,6 +207,7 @@ def main(args, metrics_path, data_args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Train a FactorVAE model on stock data')
 
+    parser.add_argument('--data_path', type=str, default='./data', help='path to the dataset')
     parser.add_argument('--universe', type=str, default='sp500')
     parser.add_argument('--model_name', type=str, default='FactorVAE1_sp500')
 
