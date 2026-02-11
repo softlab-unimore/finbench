@@ -1,6 +1,6 @@
-# FactorVAE model
+# FinFormer model
 
-This folder contains an implementation of the FactorVAE model for financial time-series classification.
+This folder contains an implementation of the FinFormer model for financial time-series classification.
 
 Requirements
 - Python 3.10 (recommended)
@@ -8,8 +8,8 @@ Requirements
 Conda-based installation (Windows PowerShell)
 1. Create and activate a conda environment with Python 3.10:
 ```powershell
-conda create -n FactorVAE python=3.10-y
-conda activate FactorVAE
+conda create -n FinFormer python=3.10-y
+conda activate FinFormer
 ```
 2. Upgrade pip and install dependencies from `requirements.txt`:
 ```powershell
@@ -28,6 +28,11 @@ Main command-line arguments (see `train.py` for full list):
 - `--pred_len`: number of future steps to predict
 - `--start_date`, `--end_train_date`, `--start_valid_date`, `--end_valid_date`, `--start_test_date`, `--end_date`: date boundaries defining the full dataset and the train/validation/test splits
 - `--seed`: random seed for reproducibility
+- `--hidden_size`: hidden size of the model
+- `--snum_head`: number of dynamic spatial attention heads
+- `--lr`: learning rate
+- `--batch_size`: batch size for training
+- `--num_layers`: number of layers in the model
 
 
 Outputs
