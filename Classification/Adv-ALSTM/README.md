@@ -32,6 +32,7 @@ Main command-line arguments (see `train.py` for full list):
 - `--beta_adv`: adversarial loss weight 
 - `--epsilon_adv`: adversarial perturbation magnitude
 - `--unit`: LSTM hidden units 
+- `--seed`: random seed for reproducibility
 
 
 Outputs

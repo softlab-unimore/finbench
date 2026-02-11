@@ -28,7 +28,7 @@ Main command-line arguments (see `train2D.py` and `train3D.py` for full list):
 - `--seq_len`: lookback window length used as model input
 - `--pred_len`: number of future steps to predict
 - `--start_date`, `--end_train_date`, `--start_valid_date`, `--end_valid_date`, `--start_test_date`, `--end_date`: date boundaries defining the full dataset and the train/validation/test splits
-
+- `--seed`: random seed for reproducibility
 
 Outputs
 - Validation/test metrics are saved under: `results/<universe>/<model>/<seed>/y<year>`.
