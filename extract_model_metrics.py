@@ -28,11 +28,20 @@ def find_best_for_model(base_path, model, type_name):
 
     metric_name, maximize, _ = TYPE_CONFIG[type_name]
 
-    model_path = os.path.join(base_path, model)
+    if 'CNNPred2D' in model or 'CNNPred3D' in model:
+        model_path = os.path.join(base_path, 'CNNPred')
+    else:
+        model_path = os.path.join(base_path, model)
+
     if not os.path.isdir(model_path):
         raise RuntimeError("Model '{}' not found in {}".format(model, base_path))
 
-    results_path = os.path.join(model_path, "results")
+    if 'CNNPred2D' in model or 'CNNPred3D' in model:
+        res_folder = 'results2D' if 'CNNPred2D' in model else 'results3D'
+        results_path = os.path.join(model_path, res_folder)
+    else:
+        results_path = os.path.join(model_path, "results")
+
     if not os.path.isdir(results_path):
         raise RuntimeError("No 'results' folder for model '{}'".format(model))
 
