@@ -308,7 +308,7 @@ def demo_download_news():
     # Download only missing tickers
     existing_files = {file.strip('.json') for file in os.listdir(news_dir) if file.endswith('.json')}
     to_download = symbols - existing_files
-    to_download = to_download[0:200]  # download 200 at a time
+    # to_download = to_download[0:200]  # download 200 at a time
 
     # Download news
     news, errors = eodhd.download_multi(list(to_download), userdata.get('eodhd'), data_type='news', verbose=True, p=1)
@@ -487,26 +487,16 @@ if __name__ == '__main__':
     # demo_search_constituents()
     # demo_validate_constituents()
 
-    # Download data and extract features
-    u = 'sp500'  # 'sp500', 'nasdaq100', 'dji', 'sx5e', 'sxxp'
-    # demo_download_dataset(u)
-    # demo_feature_extraction(u)
-    # demo_compute_relation(u)
-    # demo_incidence_matrix(u)
+    for u in ['sp500', 'nasdaq100', 'dji', 'sx5e', 'sxxp']:
+        demo_download_dataset(u)
+        demo_feature_extraction(u)
+        demo_compute_relation(u)
+        demo_incidence_matrix(u)
 
-    # Download news
-    # demo_download_news()
+        # Download news
+        demo_download_news()
 
-    # Download market features
-    # demo_market_information()
-    # cnnpred_market_features()
+        # Download market features
+        demo_market_information()
+        cnnpred_market_features()
 
-    # -------------------------------------------------------------------
-
-    # Portfolio optimization
-    # demo_portfolio_optimization()
-
-    # Compute portfolio performance
-    # rets = demo_portfolio_daily_return()
-    # demo_quantstats(rets)
-    print('Hello World!')

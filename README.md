@@ -46,7 +46,13 @@ Note: Each model implementation includes their own `requirements.txt` and exampl
 
 ## Running evaluation and examples
 
-- Evaluation: `Evaluation/main.py` and `Evaluation/evaluation.py` provide mechanisms to extract data and compute metrics on model predictions. 
+- Data loading: `Evaluation/main.py` provide the script to extract data from the data sources and prepare it for training and evaluation. 
+  Please run from the root directory:
+  ```
+    python Evaluation/main.py 
+  ```
+
+- Evaluation: `Evaluation/evaluation.py` provide mechanisms to extract data and compute metrics on model predictions. 
 
     
 - Model training: all the models provide a `train.py` (or `train_2D.py` / `train_3D.py`) script inside their folder. Typical usage (adjust per-model arguments):
