@@ -268,6 +268,8 @@ if __name__ == '__main__':
     args.add_argument('--top_k', type=int, default=10, help='top_k')
     args.add_argument('--short_k', type=int, default=0, help='short_k')
 
+    # TODO: cercare su chatgpt gruppi mutualmente esclusivi (o quintile o topk-shortk)
+
     args = args.parse_args()
 
     BASE_DIRS = f"../{args.type}"
@@ -284,6 +286,8 @@ if __name__ == '__main__':
         )
 
         runtime_args = build_runtime_args(args, year_to_config)
+
+        # TODO: mettere qui l'analisi dei quintili con un parametro in modo da poter scegliere.
         demo_portfolio_evaluation(runtime_args)
 
     # evaluate_benchmarks(
