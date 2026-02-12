@@ -57,6 +57,30 @@ Check the docs or the training script in the model folder for model-specific fla
 Almost all models were tested with **Python 3.10**; however, some exceptions (e.g., Adv-ASLTM) required different Python versions due to library compatibility issues.
 Check the ```README.md``` in each model folder for specific Python version requirements and installation instructions.
 
+
+## Extracting model metrics results
+
+Use the provided tool to collect best validation runs and produce per-model CSV metric summaries.
+
+1. Verify your results layout
+   - Results must follow the pattern:
+     ```<Type>/<Model>/results/<Universe>/<Config>/<Seed>/<Year>/*```
+   
+2. Run the extractor
+   - From the repository root, run:
+     ```
+     python extract_model_metrics.py --type <TYPE> --model <MODEL_NAME> 
+     ```
+     Replace `TYPE` and `MODEL_NAME` with the appropriate type and model folder. 
+     
+     `TYPE` must be one of: `Ranking`, `Classification`, `Regression`.
+
+   - The script will create:
+     - `<Type>/<Model>/best_results.json` — best test metrics selected by validation score.
+     - `<Type>/<Model>/metrics.csv` — tab-separated table of metrics per (Year, Seed, Universe) for common sl/pl configurations.
+   
+
+
 ## License
 
 This repository includes a `LICENSE` file at the project root. Review it for terms and conditions before using the code in production.
