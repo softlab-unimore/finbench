@@ -15,7 +15,7 @@ from utils.optimize import set_seed
 if __name__ == '__main__':
     args = ArgumentParser()
 
-    args.add_argument('--data_path', type=str, default='./data', help='Path to the dataset')
+    args.add_argument('--data_path', type=str, default='../../Evaluation/data', help='Path to the dataset')
     args.add_argument('--universe', type=str, default='sp500', help='Universe of stocks to use')
     args.add_argument('--model_name', type=str, default='SVAT', help='Name of the model to use')
 

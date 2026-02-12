@@ -123,7 +123,7 @@ class Processor(IO):
         parser = argparse.ArgumentParser(add_help=add_help, description='Base Processor')
 
         # data
-        parser.add_argument('--data_path', type=str, default='./data', help='Path to the dataset')
+        parser.add_argument('--data_path', type=str, default='../../Evaluation/data', help='Path to the dataset')
         parser.add_argument('--universe', type=str, default='sp500', help='Universe of stocks to use')
         parser.add_argument('--model_name', type=str, default='RT-GCN', help='Name of the model to use')
         parser.add_argument('--config', default=None, help='path to the configuration file')
