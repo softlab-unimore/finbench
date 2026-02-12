@@ -37,7 +37,7 @@ def parse_args():
 
     # Preprocess dataset
     args.add_argument('--universe', type=str, default='sxxp')
-    args.add_argument('--data_path', type=str, default='./data')
+    args.add_argument('--data_path', type=str, default='../../Evaluation/data')
     args.add_argument('--train', action='store_true', default=False)
     args.add_argument('--test', action='store_true', default=False)
     args.add_argument('--job_id', type=int, default=0)

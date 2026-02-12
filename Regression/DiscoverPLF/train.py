@@ -345,7 +345,7 @@ def parse_args():
     parser = argparse.ArgumentParser()
 
     # data
-    parser.add_argument('--data_path', type=str, default='./data')
+    parser.add_argument('--data_path', type=str, default='../../Evaluation/data')
     parser.add_argument('--model_name', type=str, default='discover_PLF')
     parser.add_argument('--universe', type=str, default='sp500')
 

@@ -36,7 +36,7 @@ if __name__=='__main__':
     # Load data
     parser.add_argument('--universe', type=str, default='sx5e')
     parser.add_argument('--model_name', type=str, default='DVa')
-    parser.add_argument('--data_path', type=str, default='./data', help='root path of the data files')
+    parser.add_argument('--data_path', type=str, default='../../Evaluation/data', help='root path of the data files')
     parser.add_argument('--checkpoints', type=str, default='./checkpoints/', help='location of model checkpoints')
     parser.add_argument('--job_id', type=int, default=0, help='job id')
 

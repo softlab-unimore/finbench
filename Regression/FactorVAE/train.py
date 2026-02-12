@@ -207,7 +207,7 @@ def main(args, metrics_path, data_args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Train a FactorVAE model on stock data')
 
-    parser.add_argument('--data_path', type=str, default='./data', help='path to the dataset')
+    parser.add_argument('--data_path', type=str, default='../../Evaluation/data', help='path to the dataset')
     parser.add_argument('--universe', type=str, default='sp500')
     parser.add_argument('--model_name', type=str, default='FactorVAE1_sp500')
 
