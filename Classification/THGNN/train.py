@@ -51,7 +51,7 @@ if __name__=='__main__':
     args = ArgumentParser()
 
     # Dataset Parameters
-    args.add_argument('--data_path', type=str, default='./data')
+    args.add_argument('--data_path', type=str, default='../../Evaluation/data')
     args.add_argument('--universe', type=str, default='sp500')
     args.add_argument('--model_name', type=str, default='THGNN')
     args.add_argument('--seed', type=int, default=42)

@@ -15,7 +15,7 @@ from load_data import load_data, load_matrices, extract_dates
 if __name__ == '__main__':
     args = ArgumentParser()
 
-    args.add_argument('--data_path', type=str, default='./data', help='Path to the dataset')
+    args.add_argument('--data_path', type=str, default='../../Evaluation/data', help='Path to the dataset')
     args.add_argument('--universe', type=str, default='sp500', help='Universe of stocks to use')
     args.add_argument('--model_name', type=str, default='HGTAN', help='Name of the model to use')
 

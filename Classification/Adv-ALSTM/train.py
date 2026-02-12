@@ -393,7 +393,7 @@ class AWLSTM:
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('-p', '--data_path', help='path of pv data', type=str, default='./data')
+    parser.add_argument('-p', '--data_path', help='path of pv data', type=str, default='../../Evaluation/data')
     parser.add_argument('--universe', help='universe of stocks', type=str, default='sp500')
     parser.add_argument('-l', '--seq', help='length of history', type=int, default=15)
     parser.add_argument('-n', '--pred_len', help='length of prediction', type=int, default=5)

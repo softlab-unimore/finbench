@@ -19,8 +19,8 @@ pip install -r requirements.txt
 Training example
 Run training with default-ish parameters (PowerShell):
 ```powershell
-python train2D.py --data_path ../../Evaluation/data --universe <universe>   
-python train3D.py --data_path ../../Evaluation/data --universe <universe>   
+python train2D.py --universe <universe>   
+python train3D.py --universe <universe>   
 ```
 Main command-line arguments (see `train2D.py` and `train3D.py` for full list):
 - `--data_path`: path to data folder 

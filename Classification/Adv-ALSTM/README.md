@@ -20,7 +20,7 @@ Note on TensorFlow: `requirements.txt` currently pins `tensorflow==1.8.0`.
 Training example
 Run training with default-ish parameters (PowerShell):
 ```powershell
-python train.py --data_path ../../Evaluation/data --universe <universe> 
+python train.py --universe <universe> 
 ```
 Main command-line arguments (see `train.py` for full list):
 - `--data_path`: path to data folder (default `./data`)
