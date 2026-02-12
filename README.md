@@ -26,8 +26,8 @@ Note: Each model implementation includes their own `requirements.txt` and exampl
 1. Clone the repository:
 
 ```
-   git clone https://github.com/softlab-unimore/finbench.git
-   cd finbench
+git clone https://github.com/softlab-unimore/finbench.git
+cd finbench
 ```
 
 2. Create and activate a Python virtual environment for each model and Evaluation package.
@@ -38,7 +38,7 @@ Note: Each model implementation includes their own `requirements.txt` and exampl
    - Global evaluation tools (used by `Evaluation/`):
 
    ```
-      pip install -r Evaluation/requirements.txt
+   pip install -r Evaluation/requirements.txt
    ```
 
    - Per-model dependencies: each model folder (for example `Classification/Adv-ALSTM/`) contains a `requirements.txt` with the packages needed for training and evaluation of that model. Follow the instructions in each model folder.
@@ -46,16 +46,26 @@ Note: Each model implementation includes their own `requirements.txt` and exampl
 
 ## Running evaluation and examples
 
-- Data loading: `Evaluation/main.py` provide the script to extract data from the data sources and prepare it for training and evaluation. 
+1. **Data loading**: `Evaluation/main.py` provide the script to extract data from the data sources and prepare it for training and evaluation. 
   Please run from the root directory:
-  ```
-    python Evaluation/main.py 
-  ```
-
-- Evaluation: `Evaluation/evaluation.py` provide mechanisms to extract data and compute metrics on model predictions. 
-
+      ```
+      python3 Evaluation/main.py 
+      ```
     
-- Model training: all the models provide a `train.py` (or `train_2D.py` / `train_3D.py`) script inside their folder. Typical usage (adjust per-model arguments):
+2. **Model training**: all the models provide a `train.py` (or `train_2D.py` / `train_3D.py`) script inside their folder. Typical usage (adjust per-model arguments):
+    ```
+    cd <Model_Folder>
+    python3 train.py [<pararms>] 
+    ```
+    Replace `<Model_Folder>` with the appropriate value. Check the model folder for specific training instructions and required arguments.
+
+3. **Evaluation**: `Evaluation/evaluation.py` provide mechanisms compute portfolio metrics on model predictions. 
+      ```
+      python3 Evaluation/evaluation.py --type <TYPE> --model <MODEL_NAME> 
+      ```
+   Replace `TYPE` and `MODEL_NAME` with the appropriate values.
+
+
 
 Check the docs or the training script in the model folder for model-specific flags and data requirements. 
 
