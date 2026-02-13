@@ -358,7 +358,7 @@ if __name__=='__main__':
     args.add_argument('--universe', type=str, default='sxxp')
     args.add_argument('--data_path', type=str, default='../../Evaluation/data')
     args.add_argument('--data_preprocessing', action='store_true', default=False)
-    args.add_argument('--nation', type=str, default='us')
+    args.add_argument('--nation', type=str, default=None)
 
     # Prediction Parameters
     args.add_argument('--seq_len', type=int, default=8)
@@ -387,11 +387,37 @@ if __name__=='__main__':
     args.add_argument('--n_head', type=int, default=4)
     args.add_argument('--dropout', type=float, default=0.5)
     args.add_argument('--gate_input_start_index', type=int, default=157)
-    args.add_argument('--gate_input_end_index', type=int, default=220)
+    args.add_argument('--gate_input_end_index', type=int, default=None)
     args.add_argument('--train_stop_loss_thred', type=float, default=0.95)
     args.add_argument('--num_workers', type=int, default=4)
 
     args = args.parse_args()
+
+    # Mapping universe -> default nation
+    universe_to_nation = {
+        'sxxp': 'eu',
+        'sp500': 'us',
+        'nasdaq100': 'us',
+        'dji': 'us',
+        'sx5e': 'eu',
+    }
+
+    # Mapping nation -> default gate_input_end_index
+    nation_to_gate_input_end_index = {
+        'us': 220,
+        'eu': 199
+    }
+
+    # Se l’utente NON ha passato --nation, settiamo in base a --universe
+    if args.nation is None:
+        args.nation = universe_to_nation.get(args.universe.lower(), 'us')  # fallback 'us'
+
+    # Setting args.gate_input_end_index based on the number of features in market and alpha CSVs
+    market_csv = f"{args.data_path}/{args.universe}/{args.nation}_market.csv"
+    shape_m = pd.read_csv(market_csv).shape[1]
+    alpha_csv = f"{args.data_path}/{args.universe}/{args.universe}_alpha158.csv"
+    shape_a = pd.read_csv(alpha_csv).shape[1]
+    args.gate_input_end_index = shape_m + shape_a - 3
 
     print(args)
 
