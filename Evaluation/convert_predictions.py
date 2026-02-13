@@ -11,7 +11,7 @@ def convert_predictions_to_rankings(
     """ Convert classification predictions to portfolio ranking scores """
 
     # Already return ranking scores
-    if model_name in ["Adv-ASLTM", "CNNPred", 'CNNPred2D']:
+    if model_name in ["Adv-ALSTM", "CNNPred", 'CNNPred2D']:
         assert isinstance(predictions, np.ndarray)
         return predictions
 
