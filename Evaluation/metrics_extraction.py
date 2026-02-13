@@ -303,21 +303,21 @@ def main():
     parser = argparse.ArgumentParser(prog="metrics_extraction")
     sub = parser.add_subparsers(dest="cmd", required=True)
 
-    p_eoy = sub.add_parser("eoy", help="Aggrega eoy returns")
+    p_eoy = sub.add_parser("eoy", help="Aggregate end-of-year returns")
     p_eoy.add_argument("--base_dir", default="evaluation_result")
     p_eoy.add_argument("--top_k", type=int, required=True)
     p_eoy.add_argument("--short_k", type=int, required=True)
     p_eoy.add_argument("--output_prefix", default="aggregated_eoy_returns")
 
-    p_metrics = sub.add_parser("metrics", help="Estrai metriche standard")
+    p_metrics = sub.add_parser("metrics", help="Extract standard metrics")
     p_metrics.add_argument("--root_dir", default="evaluation_result")
     p_metrics.add_argument("--mean_output", default="summary_metrics_mean_over_seeds.csv")
 
-    p_quint = sub.add_parser("quintile", help="Estrai metriche quintile")
+    p_quint = sub.add_parser("quintile", help="Extract quintile metrics")
     p_quint.add_argument("--root_dir", default="evaluation_result_quintile")
     p_quint.add_argument("--mean_output", default="summary_metrics_quintile_mean_over_seeds.csv")
 
-    p_all = sub.add_parser("all", help="Esegui tutte le pipeline")
+    p_all = sub.add_parser("all", help="Exec all the pipeline")
     p_all.add_argument("--top_k", type=int, required=True)
     p_all.add_argument("--short_k", type=int, required=True)
 
