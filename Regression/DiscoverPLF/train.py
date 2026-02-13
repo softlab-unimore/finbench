@@ -302,6 +302,9 @@ def main(args):
 
             tickers = [[stock_index.get(num, num) for num in sublist] for sublist in test_stock_indexes]
 
+            val_metrics = get_metrics(valid_preds, valid_labels)
+            val_metrics = {k: float(v) for k, v in val_metrics.items()}
+
             best_metrics = get_metrics(test_preds, test_labels)
             best_metrics = {k: float(v) for k, v in best_metrics.items()}
 
@@ -329,6 +332,9 @@ def main(args):
             with open(f'{metrics_path}/metrics_sl1_pl{args.pred_len}.json', 'w') as f:
                 json.dump(best_metrics, f)
 
+            with open(f'{metrics_path}/val_metrics_sl1_pl{args.pred_len}.json', 'w') as f:
+                json.dump(val_metrics, f)
+
         else:
             stop_round += 1
             if stop_round >= args.early_stop:
@@ -346,7 +352,7 @@ def parse_args():
 
     # data
     parser.add_argument('--data_path', type=str, default='../../Evaluation/data')
-    parser.add_argument('--model_name', type=str, default='discover_PLF')
+    parser.add_argument('--model_name', type=str, default='DiscoverPLF')
     parser.add_argument('--universe', type=str, default='sp500')
 
     # dates
