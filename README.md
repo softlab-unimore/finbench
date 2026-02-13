@@ -49,15 +49,17 @@ cd finbench
 1. **Data loading**: `Evaluation/main.py` provide the script to extract data from the data sources and prepare it for training and evaluation. 
   Please run from the root directory:
       ```
-      python3 Evaluation/main.py 
+      cd Evaluation
+      python3 main.py 
       ```
     
 2. **Model training**: all the models provide a `train.py` (or `train_2D.py` / `train_3D.py`) script inside their folder. Typical usage (adjust per-model arguments):
     ```
-    cd <Model_Folder>
+    cd ../<Type>/<Model_Folder>
     python3 train.py [<pararms>] 
     ```
     Replace `<Model_Folder>` with the appropriate value. Check the model folder for specific training instructions and required arguments.
+    `Type` must be one of: `Ranking`, `Classification`, `Regression`.
 
 
 3. **Extract task level metrics**: Use the provided tool to collect best validation runs and produce per-model CSV metric summaries.
@@ -83,7 +85,8 @@ cd finbench
 
 5. **Evaluation**: `Evaluation/evaluation.py` provide mechanisms compute portfolio metrics on model predictions. 
       ```
-      python3 Evaluation/evaluation.py --type <TYPE> --model <MODEL_NAME> 
+      cd Evaluation
+      python3 evaluation.py --type <TYPE> --model <MODEL_NAME> 
       ```
    Replace `TYPE` and `MODEL_NAME` with the appropriate values.
 
