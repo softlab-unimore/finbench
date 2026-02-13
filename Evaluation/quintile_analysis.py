@@ -18,9 +18,14 @@ def demo_portfolio_evaluation_quintile(args, qs=None):
     # Define prediction paths
     pred_paths = []
     for year, model_conf in args.configurations_by_year.items():
-        pred_paths.append(
-            f'../{args.type}/{args.model}/results/{args.universe}/{model_conf}/{args.seed}/y{year}/results_sl{args.sl}_pl{args.pl}.pkl'
-        )
+        pred_path = f'../{args.type}/{args.model}/results/{args.universe}/{model_conf}/{args.seed}/y{year}/results_sl{args.sl}_pl{args.pl}.pkl'
+        if args.type == 'Classification':
+            if args.model == 'CNNPred2D':
+                pred_path = pred_path.replace('/results/', '/results2D/')
+            elif args.model == 'CNNPred3D':
+                pred_path = pred_path.replace('/results/', '/results3D/')
+
+        pred_paths.append(pred_path)
 
     print("Preds_paths: " + str(pred_paths))
 
