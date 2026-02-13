@@ -133,14 +133,13 @@ def build_runtime_args(args, year_to_config):
 
 if __name__ == '__main__':
     args = ArgumentParser()
-    args.add_argument('--universe', type=str, default='sx5e', help='Universe')
-    args.add_argument('--model', type=str, default='MASTER', help='Model name')
-    args.add_argument("--initial_year", type=int, required=True)
+    args.add_argument('--universe', type=str, default='sx5e', help='Universe', required=True)
+    args.add_argument('--model', type=str, default='MASTER', help='Model name', required=True)
+    args.add_argument("--initial_year", type=int, default=2021, required=True)
     args.add_argument('--seed', type=int, default=0, help='Random seed')
     args.add_argument('--type', type=str, default='Regression', choices=['Regression', 'Classification', 'Ranking'], help='Prediction type')
     args.add_argument('--sl', type=int, default=5, help='sequence length')
     args.add_argument('--pl', type=int, default=1, help='pred length')
-    args.add_argument('--configuration_by_year', type=json.loads, required=True, help="Dictionary year -> configuration (JSON format)")
     args.add_argument('--top_k', type=int, default=10, help='top_k')
     args.add_argument('--short_k', type=int, default=0, help='short_k')
     args = args.parse_args()

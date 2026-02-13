@@ -35,7 +35,7 @@ def demo_portfolio_evaluation_quintile(args, qs=None):
     print("Creating portfolio history...")
     quintile_histories = create_quintile_portfolios_history(
         pred_paths,
-        start_date=f'{args.start_year}-01-01',
+        start_date=f'{args.initial_year}-01-01',
         end_date='2024-12-31',
         freq=f'{args.pl}B',
         verbose=True
@@ -83,10 +83,11 @@ if __name__ == '__main__':
     args.add_argument('--universe', type=str, default='sx5e', help='Universe')
     args.add_argument('--model', type=str, default='MASTER', help='Model name')
     args.add_argument('--seed', type=int, default=0, help='Random seed')
-    args.add_argument('--type', type=str, default='Regression', help='Type (Regression/Classification/Ranking')
+    args.add_argument('--type', type=str, default='Regression', choices=['Regression', 'Classification', 'Ranking'],
+                      help='Type (Regression/Classification/Ranking')
     args.add_argument('--sl', type=int, default=5, help='sequence length')
     args.add_argument('--pl', type=int, default=1, help='pred length')
-    args.add_argument('--start_year', type=int, default=2021, help='start year')
+    args.add_argument('--initial_year', type=int, default=2021, help='start year')
 
     args = args.parse_args()
 

@@ -83,12 +83,20 @@ cd finbench
    
 
 
-5. **Evaluation**: `Evaluation/evaluation.py` provide mechanisms compute portfolio metrics on model predictions. 
-      ```
-      cd Evaluation
-      python3 evaluation.py --type <TYPE> --model <MODEL_NAME> 
-      ```
-   Replace `TYPE` and `MODEL_NAME` with the appropriate values.
+5. **Evaluation**: 
+   1. `evaluation.py` provide mechanisms compute portfolio metrics on model predictions. 
+         ```
+         cd Evaluation
+         python3 evaluation.py --type <TYPE> --model <MODEL_NAME> --universe <UNIVERSE> --sl <SL> --pl <PL> --initial_year <YEAR> --top_k <K> --short_k <SK>
+         ```
+
+   2. `quintile_analysis.py` provides tools to compute quintile-based metrics and visualizations.
+         ```
+         cd Evaluation
+         python3 quintile_analysis.py --type <TYPE> --model <MODEL_NAME> --universe <UNIVERSE> --initial_year <YEAR>
+         ```
+       
+   Replace `TYPE`, `MODEL_NAME` and the other placeholders with the appropriate values. Check the `Evaluation/README.md` file for specific instructions and available arguments.
 
 
 
