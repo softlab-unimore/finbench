@@ -14,7 +14,6 @@ FinBench is a collection of tools, datasets and example implementations to evalu
 
 ## Implemented models
 
-<sub>
 
 | **Type**       | **Model**            | **Loss Function**                                   | Data Normalization                                                                                                      |
 |----------------|----------------------|-----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
@@ -38,7 +37,6 @@ FinBench is a collection of tools, datasets and example implementations to evalu
 |                | SVAT                 | MSE Loss + Pointwise Ranking Loss                   | Per-Ticker Max Scaling (Max Normalization)                                                                              |
 |                | RT-GCN               | MSE Loss + Pointwise Ranking Loss                   | Per-Ticker Max Scaling (Max Normalization)                                                                              |
 
-</sub>
 
 
 ## Repository layout (high level)
