@@ -84,6 +84,7 @@ def run_cnn_ann_3d(dataset, n_stocks, n_features, checkpoint_dir, dates, tickers
 
     preds = []
     preds_prob = []
+    val_preds = []
 
     for i in range(n_stocks):
         train_labels = dataset[1][:, i]
@@ -121,12 +122,19 @@ def run_cnn_ann_3d(dataset, n_stocks, n_features, checkpoint_dir, dates, tickers
 
         model.load_weights(filepath)
 
+        val_pred, _ = prediction(dataset[2], model)
+        val_preds.append(val_pred)
+
         pred, pred_prob = prediction(dataset[4], model)
         preds.append(pred)
         preds_prob.append(pred_prob)
 
+    val_preds = np.array(val_preds).squeeze(-1).swapaxes(0,1)
     preds = np.array(preds).squeeze(-1).swapaxes(0,1)
     preds_prob = np.array(preds_prob).swapaxes(0,1)
+
+    val_metrics = get_metrics(val_preds, dataset[3])
+    val_metrics = {k: float(v) for k, v in val_metrics.items()}
 
     metrics = get_metrics(preds, dataset[5])
     metrics = {k: float(v) for k, v in metrics.items()}
@@ -148,6 +156,9 @@ def run_cnn_ann_3d(dataset, n_stocks, n_features, checkpoint_dir, dates, tickers
 
     with open(f'{metrics_path}/results_sl{args.seq_len}_pl{args.pred_len}.pkl', 'wb') as f:
         pickle.dump(results, f)
+
+    with open(f'{metrics_path}/val_metrics_sl{args.seq_len}_pl{args.pred_len}.json', 'w') as f:
+        json.dump(val_metrics, f, indent=4)
 
     return metrics
 
