@@ -12,6 +12,35 @@ FinBench is a collection of tools, datasets and example implementations to evalu
 - Evaluation and backtesting tools for reproducible experiment comparison.
 - Per-model example training scripts and requirements to reproduce results.
 
+## Implemented models
+
+<sub>
+
+| **Type**       | **Model**            | **Loss Function**                                   | Data Normalization                                                                                                      |
+|----------------|----------------------|-----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| Classification | THGNN                | Cross-Entropy Loss                                  | -                                                                                                                       |
+|                | MAN-SF               | Cross-Entropy Loss                                  | Relative Price Scaling (High/Low divided by previous Adjusted Close)                                                    |
+|                | Adv-ALSTM            | Hinge Loss                                          | -                                                                                                                       |
+|                | HGTAN                | Cross-Entropy Loss                                  | Per-Ticker Max Scaling (Max Normalization)                                                                              |
+|                | CNNPred2D / CNNPred3D | MSE Loss                                            | Standardization (Z-score scaling via StandardScaler), Missing Value Imputation (fillna(0))                              |
+|                | DGDNN                | Cross-Entropy Loss                                  | -                                                                                                                       |
+| Regression     | D-Va                 | MSE + Regularization + Variational + Denoising Loss | -                                                                                                                       |
+|                | ESTIMATE             | RMSE Loss                                           | Per-Ticker Max Scaling (Max Normalization)                                                                              |
+|                | StockMixer           | MSE Loss + Pointwise Ranking Loss                   | Per-Ticker Max Scaling (Max Normalization)                                                                              |
+|                | MASTER               | MSE Loss                                            | Daily Cross-Sectional Z-score Normalization (label only), Drop-Last Strategy in Training                                |
+|                | MATCC                | MSE Loss                                            | Robust Standardization (Robust Z-score using median & IQR), Drop-Last Strategy in Training                              |
+|                | HIST                 | MSE Loss                                            | Robust Standardization + Daily Cross-Sectional Z-score, Missing Value Handling (Drop NaN Labels + fillna(0))            |
+|                | DiscoverPLF          | Reconstruction + Prediction + KL Divergence Loss    | Robust Standardization + Daily Cross-Sectional Z-score, Missing Value Handling (Drop NaN Labels + fillna(0))            |
+|                | FactorVAE            | Negative Log-Likelihood + KL Divergence Loss        | Robust Standardization + Daily Cross-Sectional Z-score, Missing Value Handling (Drop NaN Labels + fillna(0))            |
+|                | FinFormer            | Concordance Correlation Coefficient (CCC) Loss      | Robust Z-score Normalization + Missing Value Imputation + Label Filtering + Cross-Sectional Rank Normalization (CSRank) |
+|                | SAMBA                | MAE Loss                                            | Min-Max Scaling                                                                                                         |
+| Ranking        | STHAN-SR             | MSE Loss + Pointwise Ranking Loss                   | Per-Ticker Max Scaling (Max Normalization)                                                                              |
+|                | SVAT                 | MSE Loss + Pointwise Ranking Loss                   | Per-Ticker Max Scaling (Max Normalization)                                                                              |
+|                | RT-GCN               | MSE Loss + Pointwise Ranking Loss                   | Per-Ticker Max Scaling (Max Normalization)                                                                              |
+
+</sub>
+
+
 ## Repository layout (high level)
 
 - `Classification/` — Multiple classification model implementations and training scripts (e.g., Adv-ALSTM, CNNPred, DGDNN, HGTAN, MAN-SF, THGNN).
