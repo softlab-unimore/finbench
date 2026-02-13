@@ -114,8 +114,8 @@ def train(data_warehouse, checkpoint_dir, n_features, args):
     return model
 
 
-def prediction(data_warehouse, model, dates, args):
-    cnn_test_data, cnn_test_target, tickers, last_dates, pred_dates = extract_sequences_2d(data_warehouse, args.seq_len, dates, idx=(4,5))
+def prediction(data_warehouse, model, dates, args, idx=(4,5)):
+    cnn_test_data, cnn_test_target, tickers, last_dates, pred_dates = extract_sequences_2d(data_warehouse, args.seq_len, dates, idx=idx)
     overall_results = model.predict(cnn_test_data)
     test_pred = (overall_results > 0.5).astype(int)
     test_pred = np.concatenate(test_pred, axis=0).reshape(-1)
@@ -126,7 +126,11 @@ def run_cnn_ann(data_warehouse, checkpoint_dir, n_features, dates, args):
 
     K.clear_session()
     model = train(data_warehouse, checkpoint_dir, n_features, args)
-    preds, labels, tickers, last_date, pred_date, preds_prob = prediction(data_warehouse, model, dates, args)
+    val_preds, val_labels, _, _, _, _ = prediction(data_warehouse, model, dates, args, idx=(2, 3))
+    preds, labels, tickers, last_date, pred_date, preds_prob = prediction(data_warehouse, model, dates, args, idx=(4, 5))
+
+    val_metrics = get_metrics(val_preds, val_labels)
+    val_metrics = {k: float(v) for k, v in val_metrics.items()}
 
     metrics = get_metrics(preds, labels)
     metrics = {k: float(v) for k, v in metrics.items()}
@@ -139,6 +143,9 @@ def run_cnn_ann(data_warehouse, checkpoint_dir, n_features, dates, args):
         'last_date': last_date,
         'tickers': tickers
     }
+
+    with open(f'{metrics_path}/val_metrics_sl{args.seq_len}_pl{args.pred_len}.json', 'w') as f:
+        json.dump(val_metrics, f, indent=4)
 
     with open(f'{metrics_path}/metrics_sl{args.seq_len}_pl{args.pred_len}.json', 'w') as f:
         json.dump(metrics, f, indent=4)

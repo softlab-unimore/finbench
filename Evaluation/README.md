@@ -9,10 +9,11 @@ It is designed for structured quantitative evaluation pipelines, not for interac
 
 ---
 ## Requirements
-- Python **≥ 3.9**
+- Python **≥ 3.10**
 - Dependencies:
 ```bash
-pip install pandas
+conda create -n evaluation_env python=3.10
+pip install -r requirements.txt
 ```
 ## Expected Directory Structure
 The script relies on a strict directory layout. Files that do not match this structure will be skipped.
@@ -30,12 +31,12 @@ Evaluation
 ### Quintile Evaluation Results
 ```bash
 Evaluation
-  └── 
-    evaluation_result_quintile/
+  └── evaluation_result_quintile/
     └── <universe>/
         └── <task_type>/
             └── <model>/
                 └── metrics_q<q>_sl<sl>_pl<pl>_seed<seed>.csv
+
 ```
 ## Command Line Usage
 The script exposes a CLI with subcommands:
@@ -47,7 +48,7 @@ A command is mandatory! The available commands are:
 - `metrics`: Extract standard performance metrics from the specified directory.
 - `quintile`: Extract quintile-based metrics from the specified directory.
 
-### EOY
+### End-Of-Year Returns
 Options:
 - `--base_dir`: Directory containing EOY return files (default: `evaluation_result`).
 - `--top_k`: Filter by top-k (default: None - required).
@@ -60,7 +61,7 @@ Example:
 ```bash
 python metrics_extraction.py eoy --top_k 10 --short_k 10
 ```
-### METRICS
+### Metrics
 Options:
 - `--root_dir`: Directory containing metrics return files (default: `evaluation_result`).
 - `--mean_output`: Output CSV file for aggregated metrics returns (default: `summary_metrics_mean_over_seeds.csv`).
@@ -81,7 +82,7 @@ Example:
 python metrics_extraction.py metrics
 ```
 
-### QUINTILE
+### Quintile
 Options:
 - `--root_dir`: Directory containing quintile metrics return files (default: `evaluation_result_quintile`).
 - `--mean_output`: Output CSV file for aggregated quintile metrics returns (default: `summary_metrics_quintile_mean_over_seeds.csv`).
