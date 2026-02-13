@@ -112,7 +112,6 @@ if __name__ == '__main__':
         'sx5e': 'eu',
     }
 
-    # Se l’utente NON ha passato --nation, settiamo in base a --universe
     if args.nation is None:
         args.nation = universe_to_nation.get(args.universe.lower(), 'us')  # fallback 'us'
 

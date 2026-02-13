@@ -37,26 +37,26 @@ def extract_eoy_returns(base_dir: str = "evaluation_result",
     rows: List[Dict[str, Any]] = []
     topk_shortx = f"top{top_k}_short{short_k}"
 
-    for universo in os.listdir(base_dir):
-        universo_path = os.path.join(base_dir, universo)
-        if not os.path.isdir(universo_path):
+    for universe in os.listdir(base_dir):
+        universe_path = os.path.join(base_dir, universe)
+        if not os.path.isdir(universe_path):
             continue
 
-        ts_path = os.path.join(universo_path, topk_shortx)
+        ts_path = os.path.join(universe_path, topk_shortx)
         if not os.path.isdir(ts_path):
             continue
 
-        for tipologia in os.listdir(ts_path):
-            tipologia_path = os.path.join(ts_path, tipologia)
-            if not os.path.isdir(tipologia_path):
+        for task_type in os.listdir(ts_path):
+            task_type_path = os.path.join(ts_path, task_type)
+            if not os.path.isdir(task_type_path):
                 continue
 
-            for modello in os.listdir(tipologia_path):
-                modello_path = os.path.join(tipologia_path, modello)
-                if not os.path.isdir(modello_path):
+            for model in os.listdir(task_type_path):
+                model_path = os.path.join(task_type_path, model)
+                if not os.path.isdir(model_path):
                     continue
 
-                for fname in os.listdir(modello_path):
+                for fname in os.listdir(model_path):
                     match = FILENAME_EOY_RE.match(fname)
                     if not match:
                         continue
@@ -65,64 +65,64 @@ def extract_eoy_returns(base_dir: str = "evaluation_result",
                     pl = int(match.group("pl"))
                     seed = int(match.group("seed"))
 
-                    fpath = os.path.join(modello_path, fname)
+                    fpath = os.path.join(model_path, fname)
                     try:
                         df = _safe_read_csv(fpath)
                     except Exception as e:
-                        logging.warning(f"Errore lettura {fpath}: {e}")
+                        logging.warning(f"Read error {fpath}: {e}")
                         continue
 
                     if "date" not in df.columns or len(df.columns) < 2:
-                        logging.warning(f"Formato CSV inatteso: {fpath}")
+                        logging.warning(f"Unexpected CSV format: {fpath}")
                         continue
 
-                    df["anno"] = pd.to_datetime(df["date"]).dt.year
+                    df["year"] = pd.to_datetime(df["date"]).dt.year
                     value_col = df.columns[1]
 
                     for _, r in df.iterrows():
                         rows.append({
-                            "universo": universo,
-                            "modello": modello,
-                            "tipologia": tipologia,
+                            "universe": universe,
+                            "model": model,
+                            "task_type": task_type,
                             "topk": top_k,
                             "shortx": short_k,
                             "sl": sl,
                             "pl": pl,
                             "seed": seed,
-                            "anno": int(r["anno"]),
-                            "valore": r[value_col]
+                            "year": int(r["anno"]),
+                            "value": r[value_col]
                         })
 
     df_all = pd.DataFrame(rows)
     if df_all.empty:
-        logging.info("Nessun dato EOY trovato.")
+        logging.info("No EOY data found.")
         return df_all
 
     df_agg = (
         df_all
         .groupby([
-            "universo", "modello", "tipologia",
-            "topk", "shortx", "sl", "pl", "anno"
+            "universe", "model", "type",
+            "topk", "shortx", "sl", "pl", "year"
         ], as_index=False)
-        .agg(valore=("valore", "mean"))
+        .agg(valore=("value", "mean"))
     )
 
     df_final = (
         df_agg
         .pivot_table(
             index=[
-                "universo", "modello", "tipologia",
+                "universe", "model", "type"
                 "topk", "shortx", "sl", "pl"
             ],
-            columns="anno",
-            values="valore"
+            columns="year",
+            values="value"
         )
         .reset_index()
     )
 
     out_csv = f"{output_prefix}_{top_k}_{short_k}.csv"
     df_final.to_csv(out_csv, index=False)
-    logging.info(f"Creato file: {out_csv} ({len(df_final)} righe)")
+    logging.info(f"Created file: {out_csv} with ({len(df_final)} rows)")
     return df_final
 
 # ----------------------------
@@ -155,14 +155,14 @@ def extract_metrics(root_dir: str = "evaluation_result",
             parts = os.path.normpath(file_path).split(os.sep)
             try:
                 idx = parts.index(os.path.basename(root_dir))
-                universo = parts[idx + 1]
+                univers = parts[idx + 1]
                 top_short = parts[idx + 2]
                 task_type = parts[idx + 3]
-                modello = parts[idx + 4]
+                model = parts[idx + 4]
                 m = re.match(r"top(\d+)_short(\d+)", top_short)
                 topk, shortk = m.groups() if m else (None, None)
             except Exception:
-                logging.warning(f"Skipping path non conforme: {file_path}")
+                logging.warning(f"Skipping path not compliant: {file_path}")
                 continue
 
             try:
@@ -173,12 +173,12 @@ def extract_metrics(root_dir: str = "evaluation_result",
                     raw = val.values[0] if len(val) > 0 else None
                     metrics_dict[metric] = _parse_percent_or_none(raw)
             except Exception as e:
-                logging.warning(f"Errore lettura {file_path}: {e}")
+                logging.warning(f"Read error {file_path}: {e}")
                 continue
 
             row = {
-                "universo": universo,
-                "modello": modello,
+                "universe": univers,
+                "model": model,
                 "task_type": task_type,
                 "topk": topk,
                 "shortk": shortk,
@@ -205,8 +205,8 @@ def extract_metrics(root_dir: str = "evaluation_result",
 
     # mean over seeds
     GROUP_COLS = [
-        "universo",
-        "modello",
+        "universe",
+        "model",
         "task_type",
         "topk",
         "shortk",
@@ -221,7 +221,7 @@ def extract_metrics(root_dir: str = "evaluation_result",
         .mean()
     )
     grouped_df.to_csv(mean_output, index=False)
-    logging.info(f"Creato {mean_output} con {len(grouped_df)} righe")
+    logging.info(f"Created file {mean_output} with {len(grouped_df)} rows")
     return final_df
 
 # ----------------------------
@@ -245,11 +245,11 @@ def extract_metrics_quintile(root_dir: str = "evaluation_result_quintile",
             parts = os.path.normpath(file_path).split(os.sep)
             try:
                 idx = parts.index(os.path.basename(root_dir))
-                universo = parts[idx + 1]
+                universe = parts[idx + 1]
                 task_type = parts[idx + 2]
-                modello = parts[idx + 3]
+                model = parts[idx + 3]
             except Exception:
-                logging.warning(f"Skipping path non conforme: {file_path}")
+                logging.warning(f"Skipping path not compliant: {file_path}")
                 continue
 
             try:
@@ -260,12 +260,12 @@ def extract_metrics_quintile(root_dir: str = "evaluation_result_quintile",
                     raw = val.values[0] if len(val) > 0 else None
                     metrics_dict[metric] = _parse_percent_or_none(raw)
             except Exception as e:
-                logging.warning(f"Errore lettura {file_path}: {e}")
+                logging.warning(f"Read error {file_path}: {e}")
                 continue
 
             row = {
-                "universo": universo,
-                "modello": modello,
+                "universe": universe,
+                "model": model,
                 "task_type": task_type,
                 "sl": int(sl),
                 "pl": int(pl),
@@ -277,10 +277,10 @@ def extract_metrics_quintile(root_dir: str = "evaluation_result_quintile",
 
     final_df = pd.DataFrame(rows)
     if final_df.empty:
-        logging.info("Nessun file quintile trovato.")
+        logging.info("No quintile files found.")
         return final_df
 
-    GROUP_COLS = ["universo", "modello", "task_type", "sl", "pl"]
+    GROUP_COLS = ["universe", "model", "task_type", "sl", "pl"]
     final_df[TARGET_METRICS_QUINT] = final_df[TARGET_METRICS_QUINT].apply(pd.to_numeric, errors="coerce")
     mean_df = final_df.groupby(GROUP_COLS + ["quintile"], as_index=False)[TARGET_METRICS_QUINT].mean()
 
@@ -293,7 +293,7 @@ def extract_metrics_quintile(root_dir: str = "evaluation_result_quintile",
     pivot_df.columns.name = None
     pivot_df = pivot_df.rename(columns=lambda x: f"q{x}" if str(x).isdigit() else x)
     pivot_df.to_csv(mean_output, index=False)
-    logging.info(f"Creato {mean_output} con {len(pivot_df)} righe")
+    logging.info(f"Created file {mean_output} with {len(pivot_df)} rows")
     return final_df
 
 # ----------------------------
@@ -303,7 +303,7 @@ def main():
     parser = argparse.ArgumentParser(prog="metrics_extraction")
     sub = parser.add_subparsers(dest="cmd", required=True)
 
-    p_eoy = sub.add_parser("eoy", help="Aggregate end-of-year returns")
+    p_eoy = sub.add_parser("eoy", help="Aggregate eoy returns")
     p_eoy.add_argument("--base_dir", default="evaluation_result")
     p_eoy.add_argument("--top_k", type=int, required=True)
     p_eoy.add_argument("--short_k", type=int, required=True)
@@ -316,10 +316,6 @@ def main():
     p_quint = sub.add_parser("quintile", help="Extract quintile metrics")
     p_quint.add_argument("--root_dir", default="evaluation_result_quintile")
     p_quint.add_argument("--mean_output", default="summary_metrics_quintile_mean_over_seeds.csv")
-
-    p_all = sub.add_parser("all", help="Exec all the pipeline")
-    p_all.add_argument("--top_k", type=int, required=True)
-    p_all.add_argument("--short_k", type=int, required=True)
 
     args = parser.parse_args()
 
