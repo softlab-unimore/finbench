@@ -18,11 +18,10 @@ pip install -r requirements.txt
 
 Training example
 Run training with default-ish parameters (PowerShell):
-```powershell
-python train2D.py --universe <universe>   
+```powershell  
 python train3D.py --universe <universe>   
 ```
-Main command-line arguments (see `train2D.py` and `train3D.py` for full list):
+Main command-line arguments (see train3D.py` for full list):
 - `--data_path`: path to data folder 
 - `--universe`: dataset universe 
 - `--seq_len`: lookback window length used as model input
