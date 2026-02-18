@@ -134,6 +134,10 @@ Almost all models were tested with **Python 3.10**; however, some exceptions (e.
 Check the ```README.md``` in each model folder for specific Python version requirements and installation instructions.
 
 
+## Results
+
+All the results on the implemented models are available in the `results.md` file at the project root.
+
 ## License
 
 This repository includes a `LICENSE` file at the project root. Review it for terms and conditions before using the code in production.
