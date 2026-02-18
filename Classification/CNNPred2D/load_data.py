@@ -54,52 +54,6 @@ def construct_data_warehouse_2d(args):
     return data_warehouse, stocks, features
 
 
-def construct_data_warehouse_3d(args):
-    dataset = read_datasets(args)
-    all_dates = dataset['date'].drop_duplicates().sort_values()
-    all_dates = all_dates[(all_dates >= args.start_date) & (all_dates <= args.end_date)]
-
-    train_data = []
-    train_labels = []
-    valid_data = []
-    valid_labels = []
-    test_data = []
-    test_labels = []
-    tickers = []
-    dates = {}
-
-    for ticker, df in tqdm(dataset.groupby('instrument')):
-        df = df.fillna(0)
-        df = df.drop(columns=['instrument'])
-        df = pd.DataFrame({'date': all_dates}).merge(df, on='date', how='left').ffill()
-
-        if df.isnull().values.any():
-            continue
-
-        df = df.set_index('date').sort_index()
-        df['label'] = (df['close'][args.pred_len:] / df['close'][:-args.pred_len].values).astype(int)
-
-        splitted_dataset = split_train_val_test_ticker(df, args)
-
-        train_data.append(splitted_dataset[0])
-        train_labels.append(splitted_dataset[1])
-        valid_data.append(splitted_dataset[2])
-        valid_labels.append(splitted_dataset[3])
-        test_data.append(splitted_dataset[4])
-        test_labels.append(splitted_dataset[5])
-        tickers.append(ticker)
-
-        if not dates:
-            dates['pred_date'] = all_dates[all_dates >= args.start_test_date].to_list()
-            dates['last_date'] = splitted_dataset[4].index[args.seq_len-1:].to_list()
-
-    dataset = [train_data, train_labels, valid_data, valid_labels, test_data, test_labels]
-    dataset = [np.array(data) for data in dataset]
-    dataset = extract_sequences_3d(dataset, seq_len=args.seq_len)
-
-    return dataset, tickers, dates
-
-
 def split_train_val_test_ticker(df, args):
     # Train data
     train_data = df[(df.index >= args.start_date) & (df.index <= args.end_train_date)]
@@ -189,13 +143,3 @@ def extract_sequences_2d(data_warehouse, seq_len, dates=None, idx=(0,1)):
     sequences = np.expand_dims(sequences, axis=-1)
     return sequences, np.array(labels), tickers, tot_last_dates, tot_pred_dates
 
-
-def extract_sequences_3d(dataset, seq_len):
-    for i in range(len(dataset)):
-        if i % 2 == 0:
-            dataset[i] = np.lib.stride_tricks.sliding_window_view(dataset[i], window_shape=seq_len, axis=1)
-            dataset[i] = dataset[i].swapaxes(2, 3)
-
-        dataset[i] = dataset[i].swapaxes(0, 1)
-
-    return dataset

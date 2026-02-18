@@ -80,7 +80,7 @@ cd finbench
       python3 main.py 
       ```
     
-2. **Model training**: all the models provide a `train.py` (or `train_2D.py` / `train_3D.py`) script inside their folder. Typical usage (adjust per-model arguments):
+2. **Model training**: all the models provide a `train.py` script inside their folder. Typical usage (adjust per-model arguments):
     ```
     cd ../<Type>/<Model_Folder>
     python3 train.py [<pararms>] 

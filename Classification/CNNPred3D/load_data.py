@@ -43,17 +43,6 @@ def read_datasets(args):
     return dataset
 
 
-def construct_data_warehouse_2d(args):
-    dataset = read_datasets(args)
-
-    df_grouped = dataset.groupby('instrument')
-    data_warehouse = {inst: df.drop(columns=['instrument']).reset_index(drop=True) for inst, df in df_grouped}
-    stocks = len(data_warehouse)
-    features = len(dataset.columns) - 2
-
-    return data_warehouse, stocks, features
-
-
 def construct_data_warehouse_3d(args):
     dataset = read_datasets(args)
     all_dates = dataset['date'].drop_duplicates().sort_values()
@@ -134,60 +123,6 @@ def split_train_val_test_ticker(df, args):
         return None
 
     return [train_data, train_labels, valid_data, valid_labels, test_data, test_labels]
-
-
-def extract_dates(test_data, test_labels, seq_len):
-    return {
-        'last_date': test_data[seq_len-1:].to_list(),
-        'pred_date': test_labels.to_list()
-    }
-
-
-def split_train_val_test(data_warehouse, args):
-
-    dates = {}
-    splitted_data_warehouse = {}
-
-    for ticker, df in tqdm(data_warehouse.items()):
-        # Set index and label extraction
-        # df = df[200:] # Because one of the features is a moving avg of 200 days
-        df = df.fillna(0).set_index('date')
-        df['label'] = (df['close'][args.pred_len:] / df['close'][:-args.pred_len].values).astype(int)
-
-        splitted_dataset = split_train_val_test_ticker(df, args)
-
-        if splitted_dataset is None:
-            continue
-
-        dates[ticker] = extract_dates(splitted_dataset[4].index, splitted_dataset[5].index, args.seq_len)
-        splitted_data_warehouse[ticker] = splitted_dataset
-
-    return splitted_data_warehouse, dates
-
-
-def extract_sequences_2d(data_warehouse, seq_len, dates=None, idx=(0,1)):
-
-    sequences = []
-    labels = []
-    tickers = []
-    tot_pred_dates = []
-    tot_last_dates = []
-
-    for key, data in data_warehouse.items():
-        features = data[idx[0]]
-        for i in range(len(features) - seq_len + 1):
-            seq = features[i:i + seq_len]
-            sequences.append(seq)
-
-        if dates is not None:
-            tot_pred_dates.extend(dates[key]['pred_date'])
-            tot_last_dates.extend(dates[key]['last_date'])
-
-        labels.extend(data[idx[1]])
-        tickers.extend([key] * (len(features) - seq_len + 1))
-
-    sequences = np.expand_dims(sequences, axis=-1)
-    return sequences, np.array(labels), tickers, tot_last_dates, tot_pred_dates
 
 
 def extract_sequences_3d(dataset, seq_len):

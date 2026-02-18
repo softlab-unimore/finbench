@@ -9,16 +9,17 @@ from os.path import join
 import numpy as np
 import tensorflow as tf
 from sklearn.metrics import f1_score, accuracy_score, precision_score, recall_score, matthews_corrcoef
-
-from tensorflow.keras.layers import Conv2D, MaxPool2D
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, Flatten
+from tensorflow.keras.layers import Conv2D, MaxPool2D
 
-from load_data import construct_data_warehouse_2d, split_train_val_test, extract_sequences_2d
+from load_data import construct_data_warehouse_3d
 from tensorflow.keras import backend as K, callbacks
 
 
 def get_metrics(preds, labels):
+    preds = np.concatenate(preds, axis=0).reshape(-1)
+    labels = np.concatenate(labels, axis=0).reshape(-1)
 
     metrics = {
         'F1_macro': f1_score(labels, preds, average='macro'),
@@ -39,6 +40,7 @@ def f1(y_true, y_pred):
         Computes the recall, a metric for multi-label classification of
         how many relevant items are selected.
         """
+
         y_true = K.cast(y_true, K.floatx())
         y_pred = K.squeeze(y_pred, axis=-1)
 
@@ -62,96 +64,101 @@ def f1(y_true, y_pred):
         predicted_positives = K.sum(K.round(K.clip(y_pred, 0, 1)))
         precision = true_positives / (predicted_positives + K.epsilon())
         return precision
-
     precision_pos = precision(y_true, y_pred)
     recall_pos = recall(y_true, y_pred)
-    precision_neg = precision((K.ones_like(y_true) - y_true), (K.ones_like(y_pred) - K.clip(y_pred, 0, 1)))
-    recall_neg = recall((K.ones_like(y_true) - y_true), (K.ones_like(y_pred) - K.clip(y_pred, 0, 1)))
-    f_posit = 2 * ((precision_pos * recall_pos) / (precision_pos + recall_pos + K.epsilon()))
+    precision_neg = precision((K.ones_like(y_true)-y_true), (K.ones_like(y_pred)-K.clip(y_pred, 0, 1)))
+    recall_neg = recall((K.ones_like(y_true)-y_true), (K.ones_like(y_pred)-K.clip(y_pred, 0, 1)))
+    f_posit = 2*((precision_pos*recall_pos)/(precision_pos+recall_pos+K.epsilon()))
     f_neg = 2 * ((precision_neg * recall_neg) / (precision_neg + recall_neg + K.epsilon()))
 
     return (f_posit + f_neg) / 2
 
 
-def train(data_warehouse, checkpoint_dir, n_features, args):
-
-    print('sequencing ...')
-    cnn_train_data, cnn_train_target, _, _, _ = extract_sequences_2d(data_warehouse, args.seq_len)
-    cnn_valid_data, cnn_valid_target, _, _, _ = extract_sequences_2d(data_warehouse, args.seq_len, idx=(2,3))
-
-    filepath = join(checkpoint_dir, '2D-models/best-{}-{}-{}-{}-{}-{}.weights.h5'.format(
-        args.epochs, args.seq_len, args.pred_len, args.number_filter, args.dropout, args.seed))
-
-    print(' fitting model to target')
-    model = Sequential()
-
-    # layer 1
-    model.add(Conv2D(args.number_filter[0], (1, n_features),
-               activation='relu', input_shape=(args.seq_len, n_features, 1)))
-
-    # layer 2
-    model.add(Conv2D(args.number_filter[1], (3, 1), activation='relu'))
-    model.add(MaxPool2D(pool_size=(2, 1)))
-
-    # layer 3
-    model.add(Conv2D(args.number_filter[2], (3, 1), activation='relu'))
-    model.add(MaxPool2D(pool_size=(2, 1)))
-
-    model.add(Flatten())
-    model.add(Dropout(args.dropout))
-    model.add(Dense(1, activation='sigmoid'))
-
-    model.compile(optimizer='Adam', loss='mae', metrics=['acc', f1]) # run_eagerly=True
-
-    best_model = callbacks.ModelCheckpoint(filepath, monitor='val_f1', verbose=1, save_best_only=True,
-                                           save_weights_only=True, mode='max')
-
-    model.fit(cnn_train_data, cnn_train_target, epochs=args.epochs, batch_size=128, verbose=1,
-                    validation_data=(cnn_valid_data, cnn_valid_target), callbacks=[best_model])
-
-    model.load_weights(filepath)
-
-    return model
+def prediction(test_dataset, model):
+    preds_prob = model.predict(test_dataset)
+    preds = (preds_prob > 0.5).astype(int)
+    return preds, preds_prob
 
 
-def prediction(data_warehouse, model, dates, args, idx=(4,5)):
-    cnn_test_data, cnn_test_target, tickers, last_dates, pred_dates = extract_sequences_2d(data_warehouse, args.seq_len, dates, idx=idx)
-    overall_results = model.predict(cnn_test_data)
-    test_pred = (overall_results > 0.5).astype(int)
-    test_pred = np.concatenate(test_pred, axis=0).reshape(-1)
-    return test_pred, cnn_test_target, tickers, last_dates, pred_dates, overall_results
+def run_cnn_ann_3d(dataset, n_stocks, n_features, checkpoint_dir, dates, tickers, metrics_path, args):
 
+    preds = []
+    preds_prob = []
+    val_preds = []
 
-def run_cnn_ann(data_warehouse, checkpoint_dir, n_features, dates, args):
+    for i in range(n_stocks):
+        train_labels = dataset[1][:, i]
+        valid_labels = dataset[3][:, i]
 
-    K.clear_session()
-    model = train(data_warehouse, checkpoint_dir, n_features, args)
-    val_preds, val_labels, _, _, _, _ = prediction(data_warehouse, model, dates, args, idx=(2, 3))
-    preds, labels, tickers, last_date, pred_date, preds_prob = prediction(data_warehouse, model, dates, args, idx=(4, 5))
+        K.clear_session()
+        filepath = join(checkpoint_dir, '3D-models/best-{}-{}-{}-{}-{}-{}.weights.h5'.format(
+            args.epochs, args.seq_len, args.pred_len, args.number_filter, args.dropout, args.seed))
 
-    val_metrics = get_metrics(val_preds, val_labels)
+        # If the trained model doesn't exit, it is trained
+        print('fitting model')
+        model = Sequential()
+
+        #layer 1
+        model.add(Conv2D(args.number_filter[0], (1, 1), activation='relu', input_shape=(n_stocks, args.seq_len, n_features), data_format='channels_last'))
+        #layer 2
+        model.add(Conv2D(args.number_filter[1], (n_stocks, 3), activation='relu'))
+        model.add(MaxPool2D(pool_size=(1, 2)))
+
+        #layer 3
+        model.add(Conv2D(args.number_filter[2], (1, 3), activation='relu'))
+        model.add(MaxPool2D(pool_size=(1, 2)))
+
+        model.add(Flatten())
+        model.add(Dropout(args.dropout))
+        model.add(Dense(1, activation='sigmoid'))
+
+        model.compile(optimizer='Adam', loss='mae', metrics=['acc',f1])
+
+        best_model = callbacks.ModelCheckpoint(filepath, monitor='val_f1', verbose=0, save_best_only=True,
+                                               save_weights_only=True, mode='max')
+
+        model.fit(dataset[0], train_labels, epochs=args.epochs, batch_size=128, verbose=1,
+                callbacks=[best_model], validation_data=(dataset[2], valid_labels))
+
+        model.load_weights(filepath)
+
+        val_pred, _ = prediction(dataset[2], model)
+        val_preds.append(val_pred)
+
+        pred, pred_prob = prediction(dataset[4], model)
+        preds.append(pred)
+        preds_prob.append(pred_prob)
+
+    val_preds = np.array(val_preds).squeeze(-1).swapaxes(0,1)
+    preds = np.array(preds).squeeze(-1).swapaxes(0,1)
+    preds_prob = np.array(preds_prob).swapaxes(0,1)
+
+    val_metrics = get_metrics(val_preds, dataset[3])
     val_metrics = {k: float(v) for k, v in val_metrics.items()}
 
-    metrics = get_metrics(preds, labels)
+    metrics = get_metrics(preds, dataset[5])
     metrics = {k: float(v) for k, v in metrics.items()}
+
+    labels = [np.expand_dims(dataset[5][i], axis=1) for i in range(dataset[5].shape[0])]
+    preds_prob = [np.expand_dims(preds_prob[i], axis=1) for i in range(preds_prob.shape[0])]
 
     results = {
         'metrics': metrics,
         'preds': preds_prob,
-        'labels': np.expand_dims(labels, axis=1),
-        'pred_date': pred_date,
-        'last_date': last_date,
-        'tickers': tickers
+        'labels': labels,
+        'pred_date': dates['pred_date'],
+        'last_date': dates['last_date'],
+        'tickers': [tickers] * len(preds)
     }
-
-    with open(f'{metrics_path}/val_metrics_sl{args.seq_len}_pl{args.pred_len}.json', 'w') as f:
-        json.dump(val_metrics, f, indent=4)
 
     with open(f'{metrics_path}/metrics_sl{args.seq_len}_pl{args.pred_len}.json', 'w') as f:
         json.dump(metrics, f, indent=4)
 
     with open(f'{metrics_path}/results_sl{args.seq_len}_pl{args.pred_len}.pkl', 'wb') as f:
         pickle.dump(results, f)
+
+    with open(f'{metrics_path}/val_metrics_sl{args.seq_len}_pl{args.pred_len}.json', 'w') as f:
+        json.dump(val_metrics, f, indent=4)
 
     return metrics
 
@@ -170,10 +177,10 @@ if __name__=='__main__':
     args.add_argument('--end_train_date', type=str, default='2021-12-31', help='End date for training set')
     args.add_argument('--start_valid_date', type=str, default='2022-06-01', help='Start date for validation set')
     args.add_argument('--end_valid_date', type=str, default='2022-12-31', help='End date for validation set')
-    args.add_argument('--start_test_date', type=str, default='2023-06-01', help='Start date for the test set')
+    args.add_argument('--start_test_date', type=str, default='2023-01-01', help='Start date for the test set')
     args.add_argument('--end_date', type=str, default='2023-12-31', help='End date for the dataset')
 
-    args.add_argument('--epochs', type=int, default=200, help='Number of epochs')
+    args.add_argument('--epochs', type=int, default=100, help='Number of epochs')
     args.add_argument('--number_filter', type=int, nargs='+', default=[8, 8, 8])
     args.add_argument('--dropout', type=float, default=0.1)
     args.add_argument('--seed', type=int, default=42)
@@ -203,16 +210,17 @@ if __name__=='__main__':
 
     tf.random.set_seed(args.seed)
 
-    metrics_path = f'./results2D/{args.universe}/{args.model_name}/{args.seed}/y{args.start_test_date.split("-")[0]}'
+    metrics_path = f'./results/{args.universe}/{args.model_name}/{args.seed}/y{args.start_test_date.split("-")[0]}'
     os.makedirs(metrics_path, exist_ok=True)
 
-    checkpoint_dir = f'./checkpoints2D/{args.universe}/{args.model_name}/{args.seed}/y{args.start_test_date.split("-")[0]}'
+    checkpoint_dir = f'./checkpoints/{args.universe}/{args.model_name}/{args.seed}/y{args.start_test_date.split("-")[0]}'
     os.makedirs(checkpoint_dir, exist_ok=True)
 
-    data_warehouse, n_stocks, n_features = construct_data_warehouse_2d(args)
-    data_warehouse, dates = split_train_val_test(data_warehouse, args)
+    splitted_dataset, tickers, dates = construct_data_warehouse_3d(args)
+    n_features = splitted_dataset[0].shape[-1]
+    n_stocks = splitted_dataset[0].shape[1]
 
-    test_metrics = run_cnn_ann(data_warehouse, checkpoint_dir, n_features, dates, args)
+    test_metrics = run_cnn_ann_3d(splitted_dataset, n_stocks, n_features, checkpoint_dir, dates, tickers, metrics_path, args)
 
     shutil.rmtree(tmpdir)
     print('Test Metrics:\n', test_metrics)
