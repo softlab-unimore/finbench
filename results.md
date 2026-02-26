@@ -18,7 +18,8 @@
   <img src="imgs/ranking_results.png"/>
 </p>
 
-**Table 4.**Long-only Top-10 portfolio performance (CAGR%) across S&P 500 and SXXP investment universes and prediction horizons (𝐿). The first row reports the market benchmark; subsequent rows report model-based portfolio metrics.
+**Table 4.** Long-only Top-10 portfolio performance (CAGR%) across S&P 500 and SXXP investment universes and prediction horizons (𝐿). The first row reports the market benchmark; subsequent rows report model-based portfolio metrics.
+
 <p align="center">
   <img src="imgs/long_only_top_10.png" width="450"/>
 </p>
