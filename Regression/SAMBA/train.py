@@ -87,7 +87,7 @@ if __name__=='__main__':
     os.makedirs(metrics_path, exist_ok=True)
 
     df_close = pd.read_csv(f"{args.get('data_path')}/{args.get('universe')}/{args.get('universe')}.csv")
-    df_close = df_close[['date', 'instrument', 'close']]
+    df_close = df_close[['date', 'instrument', 'adj_close']]
 
     df_tech = pd.read_csv(f'{args.get("data_path")}/{args.get("universe")}/{args.get("universe")}_tech.csv')
     df_tech = df_tech[['instrument', 'date', 'vol', 'mom1', 'mom2', 'mom3', 'roc5', 'roc10', 'roc15', 'roc20', 'ema10',
@@ -135,7 +135,7 @@ if __name__=='__main__':
             continue
 
         df_ticker = df_ticker.drop(columns=['instrument'])
-        df_ticker['Label'] = (df_ticker['close'].shift(-args.get('pred_len')) - df_ticker['close']) / df_ticker['close']
+        df_ticker['Label'] = (df_ticker['adj_close'].shift(-args.get('pred_len')) - df_ticker['adj_close']) / df_ticker['adj_close']
 
         df_ticker['vol'] = df_ticker['vol'].astype(float)
         df_ticker.iloc[:, 1:-1] = apply_normalization(df_ticker.iloc[:, :-1], args.get('start_date'),
@@ -170,24 +170,17 @@ if __name__=='__main__':
         if valid_dataset.idx <= 0 or test_dataset.idx <= 0:
             continue
 
-        if (len(train_dataset.windows) >= args.get('batch_size') or len(valid_dataset.windows) >= args.get('batch_size')
-                or len(test_dataset.windows) >= args.get('batch_size')):
-            train_loader = DataLoader(train_dataset, batch_size=args.get('batch_size'), shuffle=True, drop_last=True, num_workers=args.get("num_workers"), pin_memory=True)
-            if len(train_loader) == 0:
-                continue
-            else:
-                print(f'No data for ticker {ticker}. Skipping...')
-            val_loader = DataLoader(valid_dataset, batch_size=args.get('batch_size'), shuffle=False, drop_last=False, num_workers=args.get("num_workers"), pin_memory=True)
-            if len(val_loader) == 0:
-                continue
-            else:
-                print(f'No data for ticker {ticker}. Skipping...')
-            test_loader = DataLoader(test_dataset, batch_size=args.get('batch_size'), shuffle=False, drop_last=False, num_workers=args.get("num_workers"), pin_memory=True)
-            if len(test_loader) == 0:
-                continue
-            else:
-                print(f'No data for ticker {ticker}. Skipping...')
-        else:
+        train_loader = val_loader = test_loader = None
+
+        if all(len(ds.windows) >= args.get('batch_size') for ds in [train_dataset, valid_dataset, test_dataset]):
+            train_loader = DataLoader(train_dataset, batch_size=args.get('batch_size'), shuffle=True, drop_last=True,
+                                      num_workers=args.get("num_workers"), pin_memory=True)
+            val_loader = DataLoader(valid_dataset, batch_size=args.get('batch_size'), shuffle=False, drop_last=False,
+                                    num_workers=args.get("num_workers"), pin_memory=True)
+            test_loader = DataLoader(test_dataset, batch_size=args.get('batch_size'), shuffle=False, drop_last=False,
+                                     num_workers=args.get("num_workers"), pin_memory=True)
+
+        if not all([train_loader, val_loader, test_loader]) or any(len(l) == 0 for l in [train_loader, val_loader, test_loader]):
             print(f'No data for ticker {ticker}. Skipping...')
             continue
 
