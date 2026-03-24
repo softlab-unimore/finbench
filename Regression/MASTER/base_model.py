@@ -172,6 +172,7 @@ class SequenceModel():
             data = torch.squeeze(data, dim=0)
             feature = data[:, :, 0:-1].to(self.device)
             label = data[:, -1, -1]
+            label = zscore(label) # CSZscoreNorm
             
             # nan label will be automatically ignored when compute metrics.
             # zscorenorm will not affect the results of ranking-based metrics.

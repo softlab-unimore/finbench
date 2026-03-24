@@ -37,10 +37,6 @@ def open_datasets(universe, seq_len, pred_len):
 def create_saving_path(args):
     model_save_path = f"./model_params/{args.universe}/{args.model_name}"
     metrics_path = f"./results/{args.universe}/{args.model_name}/{args.seed}/y{args.start_test_date.split('-')[0]}"
-    log_dir = f"./logs/{args.model_name}/{args.seed}"
-
-    if not os.path.exists(log_dir):
-        os.makedirs(log_dir, exist_ok=True)
 
     if not os.path.exists(model_save_path):
         os.makedirs(model_save_path, exist_ok=True)
@@ -48,7 +44,7 @@ def create_saving_path(args):
     if not os.path.exists(metrics_path):
         os.makedirs(metrics_path, exist_ok=True)
 
-    return model_save_path, metrics_path, log_dir
+    return model_save_path, metrics_path
 
 
 def select_valid_ticker(df, start_date, end_date):
@@ -95,7 +91,6 @@ if __name__ == '__main__':
     args.add_argument('--s_nhead', type=int, default=2)
     args.add_argument('--dropout', type=float, default=0.5)
     args.add_argument('--gate_input_start_index', type=int, default=157)
-    args.add_argument('--gate_input_end_index', type=int, default=None)
     args.add_argument('--beta', type=int, default=5)
     args.add_argument('--train_stop_loss_thred', type=float, default=0.95)
     args.add_argument('--seed', type=int, default=42)
@@ -125,7 +120,7 @@ if __name__ == '__main__':
 
     print(args)
 
-    model_save_path, metrics_path, log_dir = create_saving_path(args)
+    model_save_path, metrics_path = create_saving_path(args)
     device = torch.device(f"cuda:{args.gpu}" if torch.cuda.is_available() else "cpu")
 
     if args.data_preprocessing:
