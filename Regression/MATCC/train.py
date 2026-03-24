@@ -182,6 +182,7 @@ def valid_epoch(data_loader, model, device):
             data = torch.squeeze(data, dim=0)
             feature = data[:, :, 0:-1].to(device)
             label = data[:, -1, -1].to(device)
+            label = zscore(label)
             with torch.no_grad():
                 pred = model(feature.float())
             loss = loss_fn(pred, label)
