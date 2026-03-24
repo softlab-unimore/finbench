@@ -22,12 +22,16 @@ def zscore(x):
 def drop_extreme(x):
     sorted_tensor, indices = x.sort()
     N = x.shape[0]
-    percent_2_5 = int(0.025*N)  
+    percent_2_5 = int(0.025*N)
+
     # Exclude top 2.5% and bottom 2.5% values
-    filtered_indices = indices[percent_2_5:-percent_2_5]
-    mask = torch.zeros_like(x, device=x.device, dtype=torch.bool)
-    mask[filtered_indices] = True
-    return mask, x[mask]
+    if percent_2_5 != 0:
+        filtered_indices = indices[percent_2_5:-percent_2_5]
+        mask = torch.zeros_like(x, device=x.device, dtype=torch.bool)
+        mask[filtered_indices] = True
+        return mask, x[mask]
+
+    return torch.ones_like(x, device=x.device, dtype=torch.bool), x
 
 def drop_na(x):
     N = x.shape[0]
