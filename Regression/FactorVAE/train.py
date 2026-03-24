@@ -14,12 +14,8 @@ from utils import set_seed, DataArgument, filter_constituents_by_date
 import wandb
 
 def create_saving_path(args):
-    model_save_path = f"./model_params/{args.universe}/{args.model_name}"
-    metrics_path = f"./results/{args.universe}/{args.model_name}/y{args.start_test_date.split('-')[0]}"
-    log_dir = f"./logs/{args.model_name}"
-
-    if not os.path.exists(log_dir):
-        os.makedirs(log_dir)
+    model_save_path = f"./model_params/{args.universe}/{args.model_name}/{args.seed}"
+    metrics_path = f"./results/{args.universe}/{args.model_name}/{args.seed}/y{args.start_test_date.split('-')[0]}"
 
     if not os.path.exists(model_save_path):
         os.makedirs(model_save_path)
@@ -27,7 +23,7 @@ def create_saving_path(args):
     if not os.path.exists(metrics_path):
         os.makedirs(metrics_path)
 
-    return model_save_path, metrics_path, log_dir
+    return model_save_path, metrics_path
 
 def extract_labels(df, args, pred_len):
     df_close = pd.read_csv(f'{args.data_path}/{args.universe}/{args.universe}.csv')[['date', 'instrument', 'adj_close']]
@@ -237,7 +233,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     # Create saving paths
-    model_save_path, metrics_path, log_dir = create_saving_path(args)
+    model_save_path, metrics_path = create_saving_path(args)
 
     data_args = DataArgument(
         start_time=args.start_date,
