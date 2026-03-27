@@ -14,6 +14,7 @@ conda activate RTGCN
 2. Upgrade pip and install dependencies from `requirements.txt`:
 ```powershell
 pip install -r requirements.txt
+pip install ./torchlight
 ```
 
 Training example
