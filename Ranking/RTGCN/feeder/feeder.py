@@ -1,4 +1,3 @@
-
 import numpy as np
 import pandas as pd
 import torch
@@ -30,7 +29,7 @@ class Feeder(torch.utils.data.Dataset):
         self.random_choose = random_choose
         self.random_move = random_move
         self.window_size = window_size
-        self.features = ['ma5', 'ma10','ma20', 'close']
+        self.features = ['ma5', 'ma10', 'ma20', 'adj_close']
 
         self.choose_start_end_date(flag)
         self.load_data(flag)
@@ -50,9 +49,11 @@ class Feeder(torch.utils.data.Dataset):
         self.dates = self.dates.reset_index(drop=True)
         if flag == 'train':
             start_idx = 0
-            end_idx = pd.to_datetime(self.dates[self.dates > self.end_date]).idxmin() - self.arg.seq_len - self.arg.pred_len + 1
+            end_idx = pd.to_datetime(
+                self.dates[self.dates > self.end_date]).idxmin() - self.arg.seq_len - self.arg.pred_len + 1
         else:
-            start_idx = pd.to_datetime(self.dates[self.dates > self.start_date]).idxmin() - self.arg.seq_len - self.arg.pred_len + 1
+            start_idx = pd.to_datetime(
+                self.dates[self.dates > self.start_date]).idxmin() - self.arg.seq_len - self.arg.pred_len + 1
             end_idx = self.dates.index.max() - self.arg.seq_len - self.arg.pred_len + 2
 
         return start_idx, end_idx
@@ -60,7 +61,7 @@ class Feeder(torch.utils.data.Dataset):
     def extract_ma(self, df):
         windows = [5, 10, 20]
         for w in windows:
-            df[f'ma{w}'] = df.groupby('instrument')['close'].transform(
+            df[f'ma{w}'] = df.groupby('instrument')['adj_close'].transform(
                 lambda x: x.rolling(window=w, min_periods=w).mean()
             )
         df['ma_nan'] = df[['ma5', 'ma10', 'ma20']].isna().any(axis=1)
@@ -71,7 +72,7 @@ class Feeder(torch.utils.data.Dataset):
 
     def extract_labels(self, df):
         df['label'] = df.groupby('instrument', group_keys=False).apply(
-            lambda g: (g['close'].shift(-self.arg.pred_len) - g['close']) / g['close'])
+            lambda g: (g['adj_close'].shift(-self.arg.pred_len) - g['adj_close']) / g['adj_close'])
         labels = df[['instrument', 'date', 'label']]
         labels_matr = labels.pivot(index='date', columns='instrument', values='label').sort_index()
         self.label = [row.values.astype(np.float32) for _, row in labels_matr.iterrows()]
@@ -83,10 +84,10 @@ class Feeder(torch.utils.data.Dataset):
 
     def load_data(self, flag):
         dataset = pd.read_csv(f'{self.arg.data_path}/{self.arg.universe}/{self.arg.universe}.csv')
-        constituents = pd.read_csv(f'{self.arg.data_path}/constituents/eodhd/{self.arg.universe}.csv')
+        constituents = pd.read_csv(f'{self.arg.data_path}/{self.arg.universe}/{self.arg.universe}_constituents.csv')
         tickers = filter_constituents_by_date(constituents, self.arg.start_test_date)['EODHD'].tolist()
         dataset = dataset[dataset['instrument'].isin(tickers)]
-        dataset = dataset[['instrument', 'date', 'close']]
+        dataset = dataset[['instrument', 'date', 'adj_close']]
         dataset = dataset.sort_values(by=['instrument', 'date'])
 
         # Filter by date
@@ -120,7 +121,8 @@ class Feeder(torch.utils.data.Dataset):
         self.data = windows[self.start_idx:self.end_idx]
         self.label = self.label[self.start_idx:self.end_idx]
 
-        self.dates_gt = self.dates[self.start_idx + self.arg.seq_len + self.arg.pred_len -1 : self.end_idx + self.arg.seq_len + self.arg.pred_len -1]
+        self.dates_gt = self.dates[
+            self.start_idx + self.arg.seq_len + self.arg.pred_len - 1: self.end_idx + self.arg.seq_len + self.arg.pred_len - 1]
         self.last_seq_date = self.dates[self.start_idx + self.arg.seq_len - 1:self.end_idx + self.arg.seq_len - 1]
 
         self.N, self.C, self.T, self.V = self.data.shape
@@ -138,7 +140,7 @@ class Feeder(torch.utils.data.Dataset):
         data_numpy = np.array(self.data[index])
         label = np.array(self.label[index])
         closing_price = np.array(self.closing_price[index])
-        
+
         # processing
         if self.random_choose:
             data_numpy = tools.random_choose(data_numpy, self.window_size)
