@@ -107,10 +107,10 @@ if __name__=='__main__':
 
     print('Args in experiment:')
     print(args)
+    args.root_path = f'./data_preprocessed/{args.universe}/preprocessed_{args.job_id}'
 
-    os.makedirs(f'{args.data_path}_preprocessed/preprocessed_{args.job_id}', exist_ok=True)
     tickers = load_dataset(args.start_date, args.end_date, args.end_train_date, args.end_valid_date, args.start_test_date,
-                           args.data_path, args.universe, args.job_id, args.batch_size, args.sequence_length, args.prediction_length)
+                           args.data_path, args.universe,args.root_path, args.batch_size, args.sequence_length, args.prediction_length)
 
     Exp = Exp_Model
     train_setting = f'tp{args.universe}_sl{ args.sequence_length}_seed{args.seed}_jobid{args.job_id}'
@@ -126,8 +126,6 @@ if __name__=='__main__':
     val_pred_dates = []
     val_last_dates = []
     val_tickers = []
-
-    args.root_path = f'{args.data_path}_preprocessed/preprocessed_{args.job_id}'
 
     for ticker in tickers:
         print('-----------------------------------------')
@@ -164,7 +162,7 @@ if __name__=='__main__':
 
         torch.cuda.empty_cache()
 
-        os.remove(os.path.join(args.root_path, args.data_path))
+        os.remove(os.path.join(args.root_path, f"{ticker.replace('.','_')}.csv"))
         shutil.rmtree(os.path.join(args.checkpoints, setting))
 
     metrics = get_metrics(preds, labels)
