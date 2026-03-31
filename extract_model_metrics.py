@@ -17,12 +17,6 @@ DEFAULT_SL_PL_ORDER = ["sl5_pl1", "sl20_pl5", "sl60_pl20"]
 
 
 def find_best_for_model(base_path, model, type_name):
-    """Scan results for a single model and write best_results.json in the model folder.
-
-    base_path: path to the folder that contains models for the given type, e.g. ./Classification
-    model: name of the model folder inside base_path
-    type_name: one of Classification/Regression/Ranking
-    """
     if type_name not in TYPE_CONFIG:
         raise RuntimeError("Unknown type: {}".format(type_name))
 
@@ -58,7 +52,6 @@ def find_best_for_model(base_path, model, type_name):
         if not os.path.isdir(universe_path):
             continue
 
-        # gather seeds present across configs
         seeds = set(
             s
             for cfg in os.listdir(universe_path)
@@ -142,7 +135,6 @@ def find_best_for_model(base_path, model, type_name):
 # ---------------- CSV extraction ----------------
 
 def extract_metrics_recursive(d, sl_pl_key=None, metrics_order=None):
-    """Return dict {sl_pl: {metric: value}} for leaf nodes that contain 'metrics'."""
     result = {}
     if isinstance(d, dict):
         if 'metrics' in d and isinstance(d['metrics'], dict):
@@ -170,7 +162,6 @@ def process_best_results_file(json_path, sl_pl_order=None, metrics_order=None):
     sl_pl_order = sl_pl_order or DEFAULT_SL_PL_ORDER
     metrics_order = metrics_order or []
 
-    # Build rows keyed by (year, seed, universe)
     all_rows = {}
     for top_key, top_val in data.items():
         for universe_key, universe_val in top_val.items():
@@ -216,7 +207,7 @@ def main():
     parser = argparse.ArgumentParser(description='finbench tools: find best results and extract CSVs')
 
     parser.add_argument('--type', choices=list(TYPE_CONFIG.keys()), required=True, help='Type: Classification, Regression or Ranking')
-    parser.add_argument('--model', required=True, help='Model folder name (if omitted, run for all models under type)')
+    parser.add_argument('--model', required=True, help='Model folder name')
     parser.add_argument('--base', help='Base path for the type (default: ./<Type>)', default=None)
 
     args = parser.parse_args()
@@ -227,14 +218,18 @@ def main():
     find_best_for_model(base, args.model, type_name)
 
     if args.model in ['HIST', 'DiscoverPLF', 'FinFormer']:
-        DEFAULT_SL_PL_ORDER = ["sl1_pl1", "sl1_pl5", "sl1_pl20"]
+        sl_pl_order = ["sl1_pl1", "sl1_pl5", "sl1_pl20"]
     elif args.model == 'D-Va':
-        DEFAULT_SL_PL_ORDER = ["sl2_pl2", "sl6_pl6", "sl20_pl20"]
+        sl_pl_order = ["sl2_pl2", "sl6_pl6", "sl20_pl20"]
+    else:
+        sl_pl_order = DEFAULT_SL_PL_ORDER
 
     metrics_order = TYPE_CONFIG[args.type][2]
-    find_and_process(args.root, DEFAULT_SL_PL_ORDER, metrics_order)
+
+    # Fix: limita il walk alla sola cartella del modello richiesto
+    model_dir = os.path.join(base, args.model)
+    find_and_process(model_dir, sl_pl_order, metrics_order)
 
 
 if __name__ == '__main__':
     main()
-
