@@ -83,7 +83,7 @@ if __name__=='__main__':
 
     args = vars(args.parse_args())
 
-    metrics_path = f"./results/{args.get('universe')}/{args.get('model_name')}/y{args.get('start_test_date').split('-')[0]}"
+    metrics_path = f"./results/{args.get('universe')}/{args.get('model_name')}/{args.get('seed')}/y{args.get('start_test_date').split('-')[0]}"
     os.makedirs(metrics_path, exist_ok=True)
 
     df_close = pd.read_csv(f"{args.get('data_path')}/{args.get('universe')}/{args.get('universe')}.csv")
