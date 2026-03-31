@@ -111,6 +111,8 @@ if __name__=='__main__':
 
     tickers = load_dataset(args.start_date, args.end_date, args.end_train_date, args.end_valid_date, args.start_test_date,
                            args.data_path, args.universe,args.root_path, args.batch_size, args.sequence_length, args.prediction_length)
+    tickers = set(tickers)
+    tickers = list(tickers)
 
     Exp = Exp_Model
     train_setting = f'tp{args.universe}_sl{ args.sequence_length}_seed{args.seed}_jobid{args.job_id}'
