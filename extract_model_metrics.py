@@ -22,19 +22,17 @@ def find_best_for_model(base_path, model, type_name):
 
     metric_name, maximize, _ = TYPE_CONFIG[type_name]
 
-    if 'CNNPred2D' in model or 'CNNPred3D' in model:
-        model_path = os.path.join(base_path, 'CNNPred')
-    else:
-        model_path = os.path.join(base_path, model)
+    if 'CNNPred' in model and type_name == 'Classification':
+        metric_name = 'F1_macro'
+    
+    model_path = os.path.join(base_path, model)
 
     if not os.path.isdir(model_path):
         raise RuntimeError("Model '{}' not found in {}".format(model, base_path))
+    
+    results_path = os.path.join(model_path, "results")
 
-    if 'CNNPred2D' in model or 'CNNPred3D' in model:
-        res_folder = 'results2D' if 'CNNPred2D' in model else 'results3D'
-        results_path = os.path.join(model_path, res_folder)
-    else:
-        results_path = os.path.join(model_path, "results")
+
 
     if not os.path.isdir(results_path):
         raise RuntimeError("No 'results' folder for model '{}'".format(model))
@@ -224,7 +222,10 @@ def main():
     else:
         sl_pl_order = DEFAULT_SL_PL_ORDER
 
-    metrics_order = TYPE_CONFIG[args.type][2]
+    metrics_order = list(TYPE_CONFIG[args.type][2])  # copia mutabile
+
+    if 'CNNPred' in args.model and args.type == 'Classification':
+        metrics_order = [m if m != 'F1' else 'F1_macro' for m in metrics_order]
 
     # Fix: limita il walk alla sola cartella del modello richiesto
     model_dir = os.path.join(base, args.model)
