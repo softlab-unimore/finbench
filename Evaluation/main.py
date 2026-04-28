@@ -263,7 +263,7 @@ def _format_universal_features(
 
 def demo_download_dataset(universe: str):
     userdata = load_config('config.json')
-    out_dir = os.path.join('./data/dataset', universe)
+    out_dir = os.path.join('./data', universe)
     os.makedirs(out_dir, exist_ok=True)
 
     # Step 1: Read historical constituents
@@ -308,7 +308,7 @@ def demo_download_news():
     # Download only missing tickers
     existing_files = {file.strip('.json') for file in os.listdir(news_dir) if file.endswith('.json')}
     to_download = symbols - existing_files
-    # to_download = to_download[0:200]  # download 200 at a time
+    to_download = to_download[0:20]  # download 20 at a time
 
     # Download news
     news, errors = eodhd.download_multi(list(to_download), userdata.get('eodhd'), data_type='news', verbose=True, p=1)
@@ -329,7 +329,7 @@ def demo_download_news():
 
 def demo_market_information():
     userdata = load_config('config.json')
-    out_dir = os.path.join('./data/dataset')
+    out_dir = os.path.join('./data')
     os.makedirs(out_dir, exist_ok=True)
 
     us_index_symbols = ['GSPC.INDX', 'DJI.INDX', 'NDX.INDX']
@@ -348,7 +348,7 @@ def demo_market_information():
 
 
 def demo_feature_extraction(universe: str):
-    out_dir = os.path.join('./data/dataset', universe)
+    out_dir = os.path.join('./data', universe)
 
     # Read OHLC dataset
     prices = read_stock_dataset(os.path.join(out_dir, f'{universe}.csv'))
@@ -369,7 +369,7 @@ def demo_feature_extraction(universe: str):
 
 
 def demo_compute_relation(universe: str):
-    out_dir = os.path.join('./data/dataset', universe)
+    out_dir = os.path.join('./data', universe)
 
     # Read OHLC dataset
     prices = read_stock_dataset(os.path.join(out_dir, f'{universe}.csv'))
@@ -411,7 +411,7 @@ def demo_compute_relation(universe: str):
 
 
 def demo_incidence_matrix(universe: str):
-    out_dir = os.path.join('./data/dataset', universe)
+    out_dir = os.path.join('./data', universe)
 
     sect_file = os.path.join(out_dir, f'{universe}_sector_industry_matrix.npz')
     wiki_file = os.path.join(out_dir, f'{universe}_wikidata_matrix.npz')
@@ -477,7 +477,7 @@ def cnnpred_market_features():
 
     # Combine all datasets and save to CSV for CNNPred model
     df = pd.concat([df_fred, df_commodities, df_us_indx_forex], axis=1).sort_index(ascending=True)
-    df.to_csv('./data/dataset/cnnpred_market.csv', index=True)
+    df.to_csv('./data/cnnpred_market.csv', index=True)
 
     print('Here!')
 
