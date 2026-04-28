@@ -4,8 +4,8 @@ import pickle
 from argparse import ArgumentParser
 from types import SimpleNamespace
 
-from Evaluation.convert_predictions import convert_classification_preds, convert_daily_to_cumulative_returns
-from Evaluation.utils.evaluation import download_asset_prices, load_best_results, extract_yearly_config
+from convert_predictions import convert_classification_preds, convert_daily_to_cumulative_returns
+from utils.evaluation import download_asset_prices, load_best_results, extract_yearly_config
 
 from portfolio.transforms import create_long_short_portfolio_history
 from portfolio.returns import portfolio_daily_returns
@@ -86,7 +86,7 @@ def demo_portfolio_evaluation(args):
         pred_paths,
         top_k=args.top_k,
         short_k=args.short_k,
-        start_date='2020-01-01',
+        start_date=args.initial_year,
         end_date='2024-12-31',
         freq=f'{args.pl}B',
         verbose=True

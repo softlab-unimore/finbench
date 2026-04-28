@@ -3,10 +3,10 @@ import os
 
 import pandas as pd
 
-from Evaluation.utils.eodhd import download_multi
-from Evaluation.utils.storage import load_config, read_stock_dataset
+from .eodhd import download_multi
+from .storage import load_config, read_stock_dataset
 
-import Evaluation.quantstats as qs
+import quantstats as qs
 
 
 def evaluate_benchmarks(benchmarks: list[str], start_date: str, end_date: str, api_token: str) -> pd.DataFrame:
@@ -110,7 +110,7 @@ def extract_yearly_config(best_config, args):
         year_to_config = {}
 
         for year_str, sl_pl in years.items():
-            year = int(year_str)
+            year = int(str(year_str).lstrip("y"))
 
             if year < args.initial_year:
                 continue

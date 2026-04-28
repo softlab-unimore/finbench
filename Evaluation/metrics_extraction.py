@@ -322,9 +322,9 @@ def main():
     if args.cmd == "eoy":
         extract_eoy_returns(args.base_dir, args.top_k, args.short_k, args.output_prefix)
     elif args.cmd == "metrics":
-        extract_metrics(args.root_dir, args.output, args.mean_output)
+        extract_metrics(args.root_dir, args.mean_output)
     elif args.cmd == "quintile":
-        extract_metrics_quintile(args.root_dir, args.output, args.mean_output)
+        extract_metrics_quintile(args.root_dir, args.mean_output)
 
 if __name__ == "__main__":
     main()
