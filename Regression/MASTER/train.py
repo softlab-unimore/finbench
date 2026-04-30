@@ -53,7 +53,7 @@ def select_valid_ticker(df, start_date, end_date):
     df = df[df['instrument'].isin(tickers)]
     return df
 
-def extract_labels(df):
+def extract_labels(df, args):
     df_close = pd.read_csv(f"{args.data_path}/{args.universe}/{args.universe}.csv")[['date', 'instrument', 'adj_close']]
     df_close = df_close.sort_values(['instrument', 'date'])
     df_close['Label'] = df_close.groupby('instrument')['adj_close'].transform(lambda x: (x.shift(-args.pred_len) - x) / x)
@@ -70,7 +70,6 @@ if __name__ == '__main__':
     args.add_argument('--universe', type=str, default='sx5e')
     args.add_argument('--data_path', type=str, default='../../Evaluation/data')
     args.add_argument('--data_preprocessing', action='store_true', default=False)
-    args.add_argument('--nation', type=str, default=None)
 
     # Prediction Parameters
     args.add_argument('--seq_len', type=int, default=8)
@@ -107,8 +106,7 @@ if __name__ == '__main__':
         'sx5e': 'eu',
     }
 
-    if args.nation is None:
-        args.nation = universe_to_nation.get(args.universe.lower(), 'us')  # fallback 'us'
+    args.nation = universe_to_nation.get(args.universe.lower(), 'us')  # fallback 'us'
 
     # Setting args.gate_input_end_index based on the number of features in market and alpha CSVs
     market_csv = f"{args.data_path}/{args.universe}/{args.nation}_market.csv"
@@ -123,6 +121,9 @@ if __name__ == '__main__':
     model_save_path, metrics_path = create_saving_path(args)
     device = torch.device(f"cuda:{args.gpu}" if torch.cuda.is_available() else "cpu")
 
+    with open(f'{model_save_path}/args.json', 'w') as f:
+        json.dump(vars(args), f, indent=4)
+
     if args.data_preprocessing:
         os.makedirs('./checkpoints/', exist_ok=True)
 
@@ -133,7 +134,7 @@ if __name__ == '__main__':
         market_index = pd.read_csv(f'{args.data_path}/{args.nation}_market.csv')
         df_alpha = pd.merge(df_alpha, market_index, how='left', on='date')
 
-        df_alpha = extract_labels(df_alpha)
+        df_alpha = extract_labels(df_alpha, args)
         df_alpha = select_valid_ticker(df_alpha, args.start_date, args.end_train_date)
 
         robust_z_score = RobustZScoreNormalization(df_alpha[(df_alpha['date'] >= args.start_date) & (df_alpha['date'] <= args.end_train_date)])
@@ -176,7 +177,7 @@ if __name__ == '__main__':
         d_feat=args.gate_input_start_index, d_model=args.d_model, t_nhead=args.t_nhead, s_nhead=args.s_nhead,
         T_dropout_rate=args.dropout, S_dropout_rate=args.dropout, beta=args.beta, n_epochs=args.n_epoch, lr=args.lr,
         gate_input_end_index=args.gate_input_end_index, gate_input_start_index=args.gate_input_start_index,
-        save_path=f'{model_save_path}_{args.seed}', GPU=args.gpu, train_stop_loss_thred=args.train_stop_loss_thred
+        save_path=f'{model_save_path}', GPU=args.gpu, train_stop_loss_thred=args.train_stop_loss_thred
     )
 
     start = time.time()

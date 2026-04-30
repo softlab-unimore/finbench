@@ -134,7 +134,7 @@ class SequenceModel():
 
     def load_param(self, param_path):
         self.model.load_state_dict(torch.load(param_path, map_location=self.device))
-        self.fitted = 'Previously trained.'
+        self.fitted = 1
 
     def fit(self, dl_train, val_metrics_path, args, dl_valid=None, num_workers=4):
         train_loader = self._init_data_loader(dl_train, shuffle=True, drop_last=True, num_workers=num_workers)
@@ -149,7 +149,6 @@ class SequenceModel():
                 with open(f'{val_metrics_path}/val_metrics_sl{args.seq_len}_pl{args.pred_len}.json', 'w') as f:
                     json.dump(metrics, f)
 
-
                 print("Epoch %d, train_loss %.6f, valid mse %.4f, mae %.3f, rmse %.4f, r2 %.3f." % (step, train_loss, metrics['MSE'],  metrics['MAE'],  metrics['RMSE'],  metrics['R2']))
             else: print("Epoch %d, train_loss %.6f" % (step, train_loss))
         
@@ -158,11 +157,14 @@ class SequenceModel():
                 # torch.save(best_param, f'{self.save_path}/{self.save_prefix}_{self.seed}.pkl')
                 break
 
+        best_param = copy.deepcopy(self.model.state_dict())
+        torch.save(best_param, f'{self.save_path}/model.pth')
+
     def predict(self, dl_test, num_workers=4):
         if self.fitted<0:
             raise ValueError("model is not fitted yet!")
         else:
-            print('Epoch:', self.fitted)
+            print('Model loaded: start testing...')
 
         test_loader = self._init_data_loader(dl_test, shuffle=False, drop_last=False, num_workers=num_workers)
 
