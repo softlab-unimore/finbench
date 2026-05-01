@@ -11,16 +11,10 @@ from master import MASTERModel
 from train import extract_labels, select_valid_ticker, create_saving_path
 from utils import filter_constituents_by_date
 
-CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
-PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, ".."))
-
-def run_test(task_type: str, model_name: str, universe: str, config_name: str, sl_value: int, pl_value: int,
+def run_test(model_name: str, universe: str, config_name: str, sl_value: int, pl_value: int,
              start_test_date: str, end_date: str,):
     config_dir = os.path.join(
-        PROJECT_ROOT,
-        task_type,
-        model_name,
-        "model_params",
+        "./model_params",
         universe,
         config_name,
         f"sl_{sl_value}",
@@ -128,19 +122,18 @@ if __name__ == '__main__':
     parser.add_argument('--model_name', type=str, required=True)
     parser.add_argument('--universe', type=str, required=True)
     parser.add_argument('--config_name', type=str, required=True)
-    parser.add_argument('--sl_value', type=int, required=True)
-    parser.add_argument('--pl_value', type=int, required=True)
+    parser.add_argument('--seq_len', type=int, required=True)
+    parser.add_argument('--pred_len', type=int, required=True)
     parser.add_argument('--start_test_date', type=str, required=True)
     parser.add_argument('--end_date', type=str, required=True)
     args = parser.parse_args()
 
     out = run_test(
-        task_type=args.task_type,
         model_name=args.model_name,
         universe=args.universe,
         config_name=args.config_name,
-        sl_value=args.sl_value,
-        pl_value=args.pl_value,
+        sl_value=args.seq_len,
+        pl_value=args.pred_len,
         start_test_date=args.start_test_date,
         end_date=args.end_date,
     )
