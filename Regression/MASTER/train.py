@@ -35,7 +35,7 @@ def open_datasets(universe, seq_len, pred_len):
     return dl_train, dl_valid, dl_test
 
 def create_saving_path(args):
-    model_save_path = f"./model_params/{args.universe}/{args.model_name}"
+    model_save_path = f"./model_params/{args.universe}/{args.model_name}/sl_{args.seq_len}/pl_{args.pred_len}"
     metrics_path = f"./results/{args.universe}/{args.model_name}/{args.seed}/y{args.start_test_date.split('-')[0]}"
 
     if not os.path.exists(model_save_path):

@@ -153,8 +153,6 @@ class SequenceModel():
             else: print("Epoch %d, train_loss %.6f" % (step, train_loss))
         
             if train_loss <= self.train_stop_loss_thred:
-                best_param = copy.deepcopy(self.model.state_dict())
-                # torch.save(best_param, f'{self.save_path}/{self.save_prefix}_{self.seed}.pkl')
                 break
 
         best_param = copy.deepcopy(self.model.state_dict())
