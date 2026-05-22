@@ -109,7 +109,7 @@ if __name__ == '__main__':
     args.nation = universe_to_nation.get(args.universe.lower(), 'us')  # fallback 'us'
 
     # Setting args.gate_input_end_index based on the number of features in market and alpha CSVs
-    market_csv = f"{args.data_path}/{args.universe}/{args.nation}_market.csv"
+    market_csv = f"{args.data_path}/{args.nation}_market.csv"
     shape_m = pd.read_csv(market_csv).shape[1]
     alpha_csv = f"{args.data_path}/{args.universe}/{args.universe}_alpha158.csv"
     shape_a = pd.read_csv(alpha_csv).shape[1]
